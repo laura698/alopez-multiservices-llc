@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generar Catálogo Excel</title>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #f5f5f5; }
+    .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; max-width: 480px; }
+    h1 { color: #4c1d95; margin-bottom: 8px; }
+    p { color: #555; margin-bottom: 24px; }
+    button { background: #f59e0b; color: #1a1a1a; font-weight: bold; font-size: 16px; padding: 14px 32px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+    button:hover { background: #d97706; }
+    ul { text-align: left; color: #444; line-height: 2; margin-bottom: 24px; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Julio Cash Electronic Inc</h1>
+    <p>Catálogo de productos — 6 hojas (una por categoría)</p>
+    <ul>
+      <li>Washing Machines</li>
+      <li>Refrigerators</li>
+      <li>Air Conditioners</li>
+      <li>Televisions</li>
+      <li>Kitchen Appliances</li>
+      <li>Small Appliances</li>
+    </ul>
+    <button onclick="generarExcel()">⬇ Descargar Excel</button>
+  </div>
+
+  <script>
+    const columnas = [
+      "ID", "Nombre", "Marca", "Modelo", "Precio (USD)", "Precio Original (USD)",
+      "Descripcion", "Imagen (nombre archivo)", "Rating (1-5)", "Num Reviews",
+      "Stock", "URL Detalle"
+    ];
+
+    const categorias = [
+      {
+        hoja: "Washing Machines",
+        productos: [
+          [1, "Samsung Front Load 8kg", "Samsung", "WW80T504DAW", 699, 849, "Lavadora frontal 8kg, 1400rpm, Inverter", "washing-1.jpg", 4.5, 120, 15, "product-overview.html"],
+          [2, "LG TurboWash 9kg", "LG", "F4WV909P2", 799, 999, "Lavadora 9kg, TurboWash, IA DD", "washing-2.jpg", 4.8, 98, 10, "product-overview.html"],
+          [3, "Bosch Serie 6 8kg", "Bosch", "WAU28PH0ES", 750, 900, "Lavadora 8kg, EcoSilence, 1400rpm", "washing-3.jpg", 4.6, 75, 8, "product-overview.html"],
+        ]
+      },
+      {
+        hoja: "Refrigerators",
+        productos: [
+          [1, "Samsung French Door 26cu", "Samsung", "RF26HFENDSR", 1299, 1599, "Refrigerador French Door, Twin Cooling", "ref-1.jpg", 4.7, 312, 6, "product-overview.html"],
+          [2, "LG Side by Side 27cu", "LG", "LRSXS2706S", 999, 1199, "Refrigerador Side by Side, InstaView", "ref-2.jpg", 4.5, 145, 9, "product-overview.html"],
+          [3, "Bosch Serie 4 Top Freezer", "Bosch", "KDN43V1EA", 650, 780, "Refrigerador combi NoFrost, 368L", "ref-3.jpg", 4.4, 88, 12, "product-overview.html"],
+        ]
+      },
+      {
+        hoja: "Air Conditioners",
+        productos: [
+          [1, "Daikin Inverter 12000 BTU", "Daikin", "FTXB35C", 599, 749, "Minisplit inverter 12000 BTU, R-32", "ac-1.jpg", 4.8, 156, 20, "product-overview.html"],
+          [2, "LG Dual Inverter 18000 BTU", "LG", "S18EQ", 749, 899, "Dual Inverter, WiFi, 18000 BTU", "ac-2.jpg", 4.6, 203, 15, "product-overview.html"],
+          [3, "Samsung Wind-Free 9000 BTU", "Samsung", "AR09TXHQASINEU", 520, 650, "Wind-Free Cooling, 9000 BTU", "ac-3.jpg", 4.5, 89, 18, "product-overview.html"],
+        ]
+      },
+      {
+        hoja: "Televisions",
+        productos: [
+          [1, "Samsung QLED 55\"", "Samsung", "QN55Q80CAFXZA", 799, 999, "QLED 4K, 55 pulgadas, 120Hz", "tv-1.jpg", 4.7, 445, 25, "product-overview.html"],
+          [2, "LG OLED 65\"", "LG", "OLED65C3PSA", 1499, 1899, "OLED evo 4K, 65 pulgadas, 120Hz, G-Sync", "tv-2.jpg", 4.9, 312, 10, "product-overview.html"],
+          [3, "Sony Bravia X90L 55\"", "Sony", "XR55X90L", 1099, 1299, "Full Array LED 4K, 55 pulgadas, Google TV", "tv-3.jpg", 4.6, 178, 14, "product-overview.html"],
+        ]
+      },
+      {
+        hoja: "Kitchen Appliances",
+        productos: [
+          [1, "Bosch Serie 8 Lavavajillas", "Bosch", "SMV8YCX03E", 1199, 1399, "Lavavajillas 60cm, 13 cubiertos, WiFi", "kitchen-1.jpg", 4.8, 234, 8, "product-overview.html"],
+          [2, "Samsung Horno de Microondas", "Samsung", "MC28H5013AS", 299, 349, "Microondas combinado 28L, Grill", "kitchen-2.jpg", 4.4, 167, 30, "product-overview.html"],
+          [3, "LG Cocina de Induccion", "LG", "CBIZ3613BE", 850, 1050, "Cocina induccion 4 zonas, 60cm", "kitchen-3.jpg", 4.5, 92, 6, "product-overview.html"],
+        ]
+      },
+      {
+        hoja: "Small Appliances",
+        productos: [
+          [1, "Dyson V15 Detect", "Dyson", "V15 Detect", 749, 899, "Aspiradora inalambrica, laser, 60min", "small-1.jpg", 4.9, 528, 12, "product-overview.html"],
+          [2, "Dyson Airwrap", "Dyson", "HS05", 599, 699, "Multiestilarizador cabello, 8 accesorios", "small-2.jpg", 4.7, 341, 9, "product-overview.html"],
+          [3, "Bosch Batidora de Pie", "Bosch", "MUMS2EW00", 349, 429, "Batidora 700W, 3.8L, MUM Series", "small-3.jpg", 4.6, 215, 22, "product-overview.html"],
+        ]
+      }
+    ];
+
+    function generarExcel() {
+      const wb = XLSX.utils.book_new();
+
+      categorias.forEach(({ hoja, productos }) => {
+        const datos = [columnas, ...productos];
+        const ws = XLSX.utils.aoa_to_sheet(datos);
+
+        // Ancho de columnas
+        ws['!cols'] = [
+          { wch: 5 }, { wch: 28 }, { wch: 12 }, { wch: 20 }, { wch: 14 },
+          { wch: 20 }, { wch: 40 }, { wch: 22 }, { wch: 10 }, { wch: 12 },
+          { wch: 8 }, { wch: 22 }
+        ];
+
+        XLSX.utils.book_append_sheet(wb, ws, hoja);
+      });
+
+      XLSX.writeFile(wb, "catalogo-julio-cash-electronic.xlsx");
+    }
+  </script>
+</body>
+</html>

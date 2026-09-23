@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Washing Machines | Julio Cash Electronic Inc</title>
+  </head>
+
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false }">
+    <main class="flex flex-col h-screen justify-between">
+
+      <!-- Header -->
+      <div>
+        <header class="mx-auto w-full flex h-16 max-w-[1200px] items-center justify-between px-5">
+          <a href="index.html">
+            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
+          </a>
+
+          <div class="md:hidden">
+            <button @click="mobileMenuOpen = ! mobileMenuOpen">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+              </svg>
+            </button>
+          </div>
+
+          <form class="hidden h-9 w-2/5 items-center border md:flex">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-3 h-4 w-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+            </svg>
+            <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" />
+            <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"><span data-i18n="Search">Search</span></button>
+          </form>
+
+          
+    
+          
+          <!-- Language Selector -->
+          <div class="relative hidden md:block ml-4 flex-shrink-0" id="lang-dropdown-container">
+            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+              <span id="lang-flag"></span>
+              <span id="lang-label">EN</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+              </button>
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+              </button>
+            </div>
+          </div>
+    </header>
+
+        <!-- Burger menu (mobile) -->
+        <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
+          class="absolute left-0 right-0 z-50 h-screen w-full bg-white" style="display: none">
+          <div class="mx-auto">
+                        <form class="my-4 mx-5 flex h-9 items-center border">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-3 h-4 w-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+              </svg>
+              <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" />
+              <button type="submit" class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"><span data-i18n="Search">Search</span></button>
+            </form>
+            <ul class="text-center font-medium">
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Nav bar -->
+        <nav class="relative bg-violet-900">
+          <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
+            <button @click="desktopMenuOpen = ! desktopMenuOpen"
+              class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400">
+              <div class="flex justify-around">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-1 h-6 w-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                </svg><span data-i18n="All categories">All categories</span></div>
+            </button>
+            <div class="mx-7 flex gap-8">
+              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="index.html" data-i18n="Home">Home</a>
+              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="catalog.html" data-i18n="Catalog">Catalog</a>
+              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="about-us.html" data-i18n="About Us">About Us</a>
+              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- All categories dropdown -->
+        <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
+          class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white" style="display: none">
+          <div class="mx-auto flex max-w-[1200px] py-10">
+            <div class="w-[300px] border-r">
+              <div class="px-5">
+                
+            <a href="category-washing-machines.html" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
+              Washing Machines
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-refrigerators.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
+              Refrigerators
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-air-conditioners.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
+              Air Conditioners
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-televisions.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
+              Televisions
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-kitchen-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
+              Kitchen Appliances
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-small-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+              <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
+              Small Appliances
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+              </div>
+            </div>
+            
+            <div class="flex w-full justify-between">
+              <div class="flex gap-6">
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
+                    <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
+                    <li><a href="category-washing-machines.html">Whirlpool HE Washer</a></li>
+                    <li><a href="category-washing-machines.html">Bosch Series 8</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-refrigerators.html">Samsung French Door</a></li>
+                    <li><a href="category-refrigerators.html">LG InstaView</a></li>
+                    <li><a href="category-refrigerators.html">Whirlpool 4-Door</a></li>
+                    <li><a href="category-refrigerators.html">Bosch Side-by-Side</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
+                    <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
+                    <li><a href="category-air-conditioners.html">LG Dual Cool</a></li>
+                    <li><a href="category-air-conditioners.html">Carrier Xpower</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500">FEATURED</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-small-appliances.html">Dyson Hot+Cool</a></li>
+                    <li><a href="category-small-appliances.html">iRobot Roomba j7+</a></li>
+                    <li><a href="category-small-appliances.html">Dyson V15 Detect</a></li>
+                    <li><a href="category-small-appliances.html">Philips Air Fryer</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Breadcrumbs -->
+        <div class="mx-auto w-full max-w-[1200px] px-5 py-3">
+          <nav>
+            <ul class="flex items-center text-sm">
+              <li>
+                <a href="index.html" class="text-gray-500 hover:text-violet-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
+                  </svg>
+                </a>
+              </li>
+              <li><span class="mx-2 text-gray-500">&gt;</span></li>
+              <li class="text-gray-500">Washing Machines</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <section class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
+
+        <!-- Sidebar -->
+        <section class="hidden w-[300px] flex-shrink-0 px-4 lg:block">
+          <div class="flex border-b pb-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium" data-i18n="CATEGORIES">CATEGORIES</p>
+              
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Front Load</p>
+                </div>
+                <div><p class="text-gray-500">(48)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Top Load</p>
+                </div>
+                <div><p class="text-gray-500">(32)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Washer-Dryer</p>
+                </div>
+                <div><p class="text-gray-500">(24)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Mini Washer</p>
+                </div>
+                <div><p class="text-gray-500">(16)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex border-b py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">BRANDS</p>
+              
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Samsung</p>
+                </div>
+                <div><p class="text-gray-500">(28)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">LG</p>
+                </div>
+                <div><p class="text-gray-500">(34)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Whirlpool</p>
+                </div>
+                <div><p class="text-gray-500">(22)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Bosch</p>
+                </div>
+                <div><p class="text-gray-500">(18)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex border-b py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">PRICE</p>
+              <div class="flex w-full">
+                <div class="flex justify-between">
+                  <input min="50" type="number" class="h-8 w-[90px] border pl-2" placeholder="50" />
+                  <span class="px-3">-</span>
+                  <input type="number" max="999999" class="h-8 w-[90px] border pl-2" placeholder="99999" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">RATING</p>
+              <div class="flex flex-col gap-2">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products -->
+        <div class="flex-grow">
+          <div class="mb-5 flex items-center justify-between px-5">
+            <div class="flex gap-3">
+              <button class="flex items-center justify-center border px-6 py-2"><span data-i18n="Sort by">Sort by</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </button>
+              <button class="flex items-center justify-center border px-6 py-2 md:hidden"><span data-i18n="Filters">Filters</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </button>
+            </div>
+            <div class="hidden gap-3 lg:flex">
+              <button class="border bg-amber-400 py-2 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+                </svg>
+              </button>
+              <button class="border py-2 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <section class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-3">
+            <!-- PRODUCTOS:START -->
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-1.jpg" alt="Samsung Front Load 8kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Samsung Front Load 8kg</p>
+                <p class="font-medium text-violet-900">$699 <span class="text-sm text-gray-500 line-through">$849</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(120)</p></div>
+                <a href="product-detail.html#n=Samsung+Front+Load+8kg&p=699&po=849&img=washing-1.jpg&b=Samsung&m=WW80T504DAW&d=Lavadora+frontal+8kg%2C+1400rpm%2C+Inverter&r=4.5&rv=120&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-2.jpg" alt="LG TurboWash 9kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 20% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">LG TurboWash 9kg</p>
+                <p class="font-medium text-violet-900">$799 <span class="text-sm text-gray-500 line-through">$999</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(98)</p></div>
+                <a href="product-detail.html#n=LG+TurboWash+9kg&p=799&po=999&img=washing-2.jpg&b=LG&m=F4WV909P2&d=Lavadora+9kg%2C+TurboWash%2C+IA+DD&r=4.8&rv=98&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-3.jpg" alt="Bosch Serie 6 8kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 17% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Bosch Serie 6 8kg</p>
+                <p class="font-medium text-violet-900">$750 <span class="text-sm text-gray-500 line-through">$900</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(75)</p></div>
+                <a href="product-detail.html#n=Bosch+Serie+6+8kg&p=750&po=900&img=washing-3.jpg&b=Bosch&m=WAU28PH0ES&d=Lavadora+8kg%2C+EcoSilence%2C+1400rpm&r=4.6&rv=75&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-4.jpg" alt="Whirlpool Carga Superior 18kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 17% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Whirlpool Carga Superior 18kg</p>
+                <p class="font-medium text-violet-900">$629 <span class="text-sm text-gray-500 line-through">$759</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(84)</p></div>
+                <a href="product-detail.html#n=Whirlpool+Carga+Superior+18kg&p=629&po=759&img=washing-4.jpg&b=Whirlpool&m=8MWTW1812MJM&d=Lavadora+carga+superior+18kg%2C+Xpert+System%2C+12+ciclos&r=4.4&rv=84&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-5.jpg" alt="Mabe Automatica 20kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Mabe Automatica 20kg</p>
+                <p class="font-medium text-violet-900">$679 <span class="text-sm text-gray-500 line-through">$829</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(67)</p></div>
+                <a href="product-detail.html#n=Mabe+Automatica+20kg&p=679&po=829&img=washing-5.jpg&b=Mabe&m=LMA70214VBAB0&d=Lavadora+automatica+20kg%2C+Aqua+Saver+Green%2C+tapa+de+vidrio&r=4.3&rv=67&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-6.jpg" alt="Electrolux UltimateCare 11kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 15% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Electrolux UltimateCare 11kg</p>
+                <p class="font-medium text-violet-900">$845 <span class="text-sm text-gray-500 line-through">$999</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(103)</p></div>
+                <a href="product-detail.html#n=Electrolux+UltimateCare+11kg&p=845&po=999&img=washing-6.jpg&b=Electrolux&m=EWF1142Q7WB&d=Lavadora+frontal+11kg%2C+vapor%2C+motor+inverter&r=4.7&rv=103&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-7.jpg" alt="Hisense Front Load 10kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Hisense Front Load 10kg</p>
+                <p class="font-medium text-violet-900">$599 <span class="text-sm text-gray-500 line-through">$729</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(58)</p></div>
+                <a href="product-detail.html#n=Hisense+Front+Load+10kg&p=599&po=729&img=washing-7.jpg&b=Hisense&m=WFQY1014EVJM&d=Lavadora+frontal+10kg%2C+1400rpm%2C+lavado+rapido&r=4.5&rv=58&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-8.jpg" alt="Samsung AddWash 12kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 17% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Samsung AddWash 12kg</p>
+                <p class="font-medium text-violet-900">$949 <span class="text-sm text-gray-500 line-through">$1,149</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(149)</p></div>
+                <a href="product-detail.html#n=Samsung+AddWash+12kg&p=949&po=1149&img=washing-8.jpg&b=Samsung&m=WW12T504DTW&d=Lavadora+frontal+12kg%2C+AddWash%2C+EcoBubble&r=4.8&rv=149&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-9.jpg" alt="LG Carga Superior 16kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">LG Carga Superior 16kg</p>
+                <p class="font-medium text-violet-900">$589 <span class="text-sm text-gray-500 line-through">$719</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(121)</p></div>
+                <a href="product-detail.html#n=LG+Carga+Superior+16kg&p=589&po=719&img=washing-9.jpg&b=LG&m=WT16BVTB&d=Lavadora+carga+superior+16kg%2C+Smart+Inverter%2C+Punch%2B3&r=4.4&rv=121&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="flex flex-col border rounded overflow-hidden">
+              <div class="relative flex h-56 overflow-hidden">
+                <img class="h-full w-full object-contain" src="./assets/images/washing-10.jpg" alt="Indurama Smart Wash 15kg" />
+                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+                  <p class="px-2 py-2 text-sm">&minus; 15% OFF</p>
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="mt-2 text-sm uppercase font-medium">Indurama Smart Wash 15kg</p>
+                <p class="font-medium text-violet-900">$549 <span class="text-sm text-gray-500 line-through">$649</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(39)</p></div>
+                <a href="product-detail.html#n=Indurama+Smart+Wash+15kg&p=549&po=649&img=washing-10.jpg&b=Indurama&m=LRI-15BL&d=Lavadora+automatica+15kg%2C+panel+digital%2C+autobalance&r=4.2&rv=39&cat=washing-machines" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <!-- PRODUCTOS:END -->
+          </section>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
+        <div class="ml-5">
+          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+          <p class="pl-0">Quality home appliances <br /> at the best prices.</p>
+          <div class="mt-10 flex gap-3">
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/github.svg" alt="github icon" /></a>
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/telegram.svg" alt="telegram icon" /></a>
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/linkedin.svg" alt="linkedin icon" /></a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500" data-i18n="CATEGORIES">CATEGORIES</p>
+            <ul class="text-sm leading-8">
+              <li><a href="category-washing-machines.html">Washing Machines</a></li>
+              <li><a href="category-refrigerators.html">Refrigerators</a></li>
+              <li><a href="category-air-conditioners.html">Air Conditioners</a></li>
+              <li><a href="category-televisions.html">Televisions</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">SUPPORT</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Warranty</a></li>
+              <li><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">COMPANY</p>
+            <ul class="text-sm leading-8">
+              <li><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">License</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">DELIVERY</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Countries</a></li>
+              <li><a href="#">Restrictions</a></li>
+              <li><a href="#">Payment</a></li>
+              <li><a href="#">Tracking</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      <section class="h-11 bg-amber-400">
+        <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
+          <p>&copy; Julio Cash Electronic Inc, 2024</p>
+          <div class="flex items-center space-x-3">
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" alt="Visa" />
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="AE" />
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" alt="Apple Pay" />
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+  </body>
+</html>

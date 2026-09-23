@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#ffffff" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"
+    ></script>
+    <title>Checkout</title>
+  </head>
+
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
+    <main class="h-screen flex flex-col justify-between">
+      <div>
+        <!-- Header -->
+        <header
+          class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5"
+        >
+          <a href="index.html">
+            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
+          </a>
+
+          <form class="hidden h-9 w-2/5 items-center border md:flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mx-3 h-4 w-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+
+            <input
+              class="hidden w-11/12 outline-none md:block"
+              type="search"
+              placeholder="Search"
+            />
+
+            <button
+              class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
+            ><span data-i18n="Search">Search</span></button>
+          </form>
+
+          
+    
+          
+          <!-- Language Selector -->
+      <div class="flex items-center gap-2">
+          <div class="relative flex-shrink-0" id="lang-dropdown-container">
+            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+              <span id="lang-flag"></span>
+              <span id="lang-label">EN</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+              </button>
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+              </button>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <button class="md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+          </button>
+        </div><!-- /flex wrapper -->
+    </header>
+        <!-- /Header -->
+
+        <!-- Burger menu  -->
+        <section
+          x-show="mobileMenuOpen"
+          @click.outside="mobileMenuOpen = false"
+          class="absolute left-0 right-0 z-50 h-screen w-full bg-white"
+          style="display: none"
+        >
+          <div class="mx-auto">
+                        <form class="my-4 mx-5 flex h-9 items-center border">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mx-3 h-4 w-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+
+              <input
+                class="hidden w-11/12 outline-none md:block"
+                type="search"
+                placeholder="Search"
+              />
+
+              <button
+                type="submit"
+                class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
+              ><span data-i18n="Search">Search</span></button>
+            </form>
+            <ul class="text-center font-medium">
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+        </section>
+        <!-- /Burger menu  -->
+
+        <!-- Nav bar -->
+        <!-- hidden on small devices -->
+
+        <nav class="relative bg-violet-900">
+          <div
+            class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex"
+          >
+            <button
+              @click="desktopMenuOpen = ! desktopMenuOpen"
+              class="ml-5 flex h-full w-auto cursor-pointer items-center justify-center bg-amber-400 px-4 whitespace-nowrap"
+            >
+              <div class="flex justify-around" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mx-1 h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg><span data-i18n="All categories">All categories</span></div>
+            </button>
+
+            <div class="mx-7 flex gap-8">
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="index.html"
+                data-i18n="Home"
+                >Home</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="catalog.html"
+                data-i18n="Catalog"
+                >Catalog</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="about-us.html"
+                data-i18n="About Us"
+                >About Us</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="contact-us.html"
+                data-i18n="Contact Us"
+                >Contact Us</a
+              >
+            </div>
+
+            
+          </div>
+        </nav>
+        <!-- /Nav bar -->
+
+<!-- Menu  -->
+        <section
+          x-show="desktopMenuOpen"
+          @click.outside="desktopMenuOpen = false"
+          class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white"
+          style="display: none"
+        >
+          <div class="mx-auto flex max-w-[1200px] py-10">
+            <div class="w-[300px] border-r">
+              <div class="px-5">
+                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
+                  <span data-i18n="Washing Machines">Washing Machines</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
+                  <span data-i18n="Refrigerators">Refrigerators</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
+                  <span data-i18n="Air Conditioners">Air Conditioners</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
+                  <span data-i18n="Televisions">Televisions</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
+                  <span data-i18n="Kitchen Appliances">Kitchen Appliances</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
+                  <span data-i18n="Small Appliances">Small Appliances</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex w-full justify-between">
+              <div class="flex gap-6">
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Washing Machines">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung WD Pro</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG TurboWash 360</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool HE Washer</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Series 8</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Refrigerators">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung French Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG InstaView</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool 4-Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Side-by-Side</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Daikin Inverter 12k</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Mitsubishi Mini Split</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG Dual Cool</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Carrier Xpower</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Featured">FEATURED</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson Hot+Cool</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">iRobot Roomba j7+</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson V15 Detect</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Philips Air Fryer</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /Menu  -->
+
+        <!-- breadcrumbs  -->
+
+        <nav class="mx-auto w-full mt-4 max-w-[1200px] px-5">
+          <ul class="flex items-center">
+            <li class="cursor-pointer">
+              <a href="index.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
+                  />
+                  <path
+                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <span class="mx-2 text-gray-500">&gt;</span>
+            </li>
+
+            <li class="text-gray-500">Checkout</li>
+          </ul>
+        </nav>
+        <!-- /breadcrumbs  -->
+      </div>
+
+      <section class="flex-grow">
+        <section
+          class="container mx-auto max-w-[1200px] py-5 lg:flex lg:flex-row lg:py-10"
+        >
+          <h2 class="mx-auto px-5 text-2xl font-bold md:hidden">
+            Payment Method
+          </h2>
+          <!-- form  -->
+          <section
+            class="grid w-full max-w-[1200px] grid-cols-1 gap-3 px-5 pb-10"
+          >
+            <table class="hidden lg:table">
+              <thead class="h-16 bg-neutral-100">
+                <tr>
+                  <th>ADDRESS</th>
+                  <th>DELIVERY METHOD</th>
+                  <th class="bg-neutral-600 text-white">PAYMENT METHOD</th>
+                  <th>ORDER REVIEW</th>
+                </tr>
+              </thead>
+            </table>
+
+            <div class="py-5">
+              <form class="flex w-full flex-col gap-3" action="">
+                <div class="flex w-full flex-col">
+                  <label class="flex" for="name">Payment Card Number</label>
+                  <input
+                    x-mask="9999 9999 9999 9999"
+                    class="w-full border px-4 py-2 lg:w-1/2"
+                    placeholder="1223 4568 7644 4839"
+                  />
+                </div>
+
+                <div class="flex w-full flex-col">
+                  <label class="flex" for="name">Card Holder</label>
+                  <input
+                    class="w-full border px-4 py-2 lg:w-1/2"
+                    type="text"
+                    placeholder="SARAH JOHNSON"
+                  />
+                </div>
+
+                <div class="flex items-center gap-5 lg:w-1/2">
+                  <div class="flex flex-col">
+                    <label class="flex" for="name">Expiry Date</label>
+
+                    <div class="flex w-[150px] items-center gap-1">
+                      <input
+                        x-mask="99"
+                        class="w-1/2 border px-4 py-2 text-center"
+                        name=""
+                        id=""
+                        placeholder="10"
+                      />
+
+                      <span>&bsol;</span>
+
+                      <input
+                        x-mask="99"
+                        class="w-1/2 border px-4 py-2 text-center"
+                        name=""
+                        id=""
+                        placeholder="36"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col w-[60px] lg:w-[110px]">
+                    <label class="flex" for="">CVV/CVC</label>
+                    <input
+                      x-mask="999"
+                      class="w-full border py-2 text-center lg:w-1/2"
+                      type="password"
+                      placeholder="&bull;&bull;&bull;"
+                    />
+                  </div>
+                </div>
+
+                <!-- another payment-methods -->
+
+                <h2 class="mt-10 text-left text-xl font-medium">
+                  Another methods:
+                </h2>
+                <section
+                  class="my-4 grid w-fit grid-cols-3 gap-4 lg:grid-cols-5"
+                >
+                  <img
+                    class="w-[100px] cursor-pointer"
+                    src="./assets/images/payment-method-bitcoin.svg"
+                    alt="bitcoin icon"
+                  />
+                  <img
+                    class="w-[100px] cursor-pointer"
+                    src="./assets/images/payment-method-paypal.svg"
+                    alt="paypal icon"
+                  />
+                  <img
+                    class="w-[100px] cursor-pointer"
+                    src="./assets/images/payment-method-stripe.svg"
+                    alt="stripe icon"
+                  />
+                  <img
+                    class="w-[100px] cursor-pointer"
+                    src="./assets/images/payment-method-visa.svg"
+                    alt="visa icon"
+                  />
+                  <img
+                    class="w-[100px] cursor-pointer"
+                    src="./assets/images/payment-method-mastercard.svg"
+                    alt="mastercard icon"
+                  />
+                </section>
+                <!-- another payment-methods -->
+              </form>
+            </div>
+
+            <div class="flex w-full items-center justify-between">
+              <a
+                href="catalog.html"
+                class="hidden text-sm text-violet-900 lg:block"
+                >&larr; Back to the shop</a
+              >
+
+              <div class="mx-auto flex justify-center gap-2 lg:mx-0">
+                <a
+                  href="checkout-delivery.html"
+                  class="bg-purple-900 px-4 py-2 text-white"
+                  >Previous step</a
+                >
+
+                <a href="checkout-review.html" class="bg-amber-400 px-4 py-2"
+                  >Checkout review</a
+                >
+              </div>
+            </div>
+          </section>
+          <!-- /form  -->
+
+          <!-- Summary  -->
+
+          <section class="mx-auto w-full px-4 md:max-w-[400px]">
+            <div class="">
+              <div class="border py-5 px-4 shadow-md">
+                <p class="font-bold">ORDER SUMMARY</p>
+
+                <div class="flex justify-between border-b py-5">
+                  <p>Subtotal</p>
+                  <p>$1280</p>
+                </div>
+
+                <div class="flex justify-between border-b py-5">
+                  <p>Shipping</p>
+                  <p>Free</p>
+                </div>
+
+                <div class="flex justify-between py-5">
+                  <p>Total</p>
+                  <p>$1280</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- /Summary -->
+
+        <!-- Cons bages -->
+
+        <section
+          class="container mx-auto my-8 flex flex-col justify-center gap-3 lg:flex-row"
+        >
+          <!-- 1 -->
+
+          <div
+            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+          >
+            <div class="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-violet-900 lg:mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                />
+              </svg>
+            </div>
+
+            <div class="ml-6 flex flex-col justify-center">
+              <h3 class="text-left text-xs font-bold lg:text-sm">
+                Free Delivery
+              </h3>
+              <p class="text-light text-center text-xs lg:text-left lg:text-sm">
+                Orders from $200
+              </p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+
+          <div
+            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+          >
+            <div class="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-violet-900 lg:mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
+                />
+              </svg>
+            </div>
+
+            <div class="ml-6 flex flex-col justify-center">
+              <h3 class="text-left text-xs font-bold lg:text-sm">
+                Money returns
+              </h3>
+              <p class="text-light text-left text-xs lg:text-sm">
+                30 Days guarantee
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+
+          <div
+            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+          >
+            <div class="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-violet-900 lg:mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+                />
+              </svg>
+            </div>
+
+            <div class="ml-6 flex flex-col justify-center">
+              <h3 class="text-left text-xs font-bold lg:text-sm">
+                24/7 Supports
+              </h3>
+              <p class="text-light text-left text-xs lg:text-sm">
+                Consumer support
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- /Cons bages  -->
+      </section>
+
+      <!-- Desktop Footer  -->
+
+      <footer
+        class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
+      >
+        <div class="ml-5">
+          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+          <p class="pl-0">
+            Lorem ipsum dolor sit amet consectetur <br />
+            adipisicing elit.
+          </p>
+          <div class="mt-10 flex gap-3">
+            <a href="https://github.com/bbulakh">
+              <img
+                class="h-5 w-5 cursor-pointer"
+                src="./assets/images/github.svg"
+                alt="github icon"
+              />
+            </a>
+            <a href="https://t.me/b_bulakh">
+              <img
+                class="h-5 w-5 cursor-pointer"
+                src="./assets/images/telegram.svg"
+                alt="telegram icon"
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/bogdan-bulakh-393284190/">
+              <img
+                class="h-5 w-5 cursor-pointer"
+                src="./assets/images/linkedin.svg"
+                alt="twitter icon"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">FEATURES</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Marketing</a></li>
+              <li><a href="#">Commerce</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li><a href="#">Merchendise</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">SUPPORT</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Audition</a></li>
+              <li><a href="#">Art Status</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">DOCUMENTS</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Conditions</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">License</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-gray-500">DELIVERY</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">List of countries</a></li>
+              <li><a href="#">Special information</a></li>
+              <li><a href="#">Restrictions</a></li>
+              <li><a href="#">Payment</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <!-- /Desktop Footer  -->
+
+
+    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+  </body>
+</html>

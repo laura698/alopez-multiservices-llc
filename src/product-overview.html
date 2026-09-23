@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
+    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Samsung QLED 55" — Julio Cash Electronic Inc</title>
+  </head>
+
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
+    <main class="flex flex-col h-screen justify-between">
+      <div>
+        <!-- Header -->
+        <header
+          class="mx-auto w-full flex h-16 max-w-[1200px] items-center justify-between px-5"
+        >
+          <a href="index.html">
+            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
+          </a>
+
+          <form class="hidden h-9 w-2/5 items-center border md:flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mx-3 h-4 w-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+
+            <input
+              class="hidden w-11/12 outline-none md:block"
+              type="search"
+              placeholder="Search"
+            />
+
+            <button
+              class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
+            ><span data-i18n="Search">Search</span></button>
+          </form>
+
+          
+    
+          
+          <!-- Language Selector -->
+      <div class="flex items-center gap-2">
+          <div class="relative flex-shrink-0" id="lang-dropdown-container">
+            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+              <span id="lang-flag"></span>
+              <span id="lang-label">EN</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+              </button>
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+              </button>
+            </div>
+          </div>
+          <!-- Mobile hamburger -->
+          <button class="md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+          </button>
+        </div><!-- /flex wrapper -->
+    </header>
+        <!-- /Header -->
+
+        <!-- Burger menu  -->
+        <section
+          x-show="mobileMenuOpen"
+          @click.outside="mobileMenuOpen = false"
+          class="absolute left-0 right-0 z-50 h-screen w-full bg-white"
+          style="display: none"
+        >
+          <div class="mx-auto">
+                        <form class="my-4 mx-5 flex h-9 items-center border">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mx-3 h-4 w-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+
+              <input
+                class="hidden w-11/12 outline-none md:block"
+                type="search"
+                placeholder="Search"
+              />
+
+              <button
+                type="submit"
+                class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
+              ><span data-i18n="Search">Search</span></button>
+            </form>
+            <ul class="text-center font-medium">
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+        </section>
+        <!-- /Burger menu  -->
+
+        <!-- Nav bar -->
+        <!-- hidden on small devices -->
+
+        <nav class="relative bg-violet-900">
+          <div
+            class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex"
+          >
+            <button
+              @click="desktopMenuOpen = ! desktopMenuOpen"
+              class="ml-5 flex h-full w-auto cursor-pointer items-center justify-center bg-amber-400 px-4 whitespace-nowrap"
+            >
+              <div class="flex justify-around" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="mx-1 h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg><span data-i18n="All categories">All categories</span></div>
+            </button>
+
+            <div class="mx-7 flex gap-8">
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="index.html"
+                data-i18n="Home"
+                >Home</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="catalog.html"
+                data-i18n="Catalog"
+                >Catalog</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="about-us.html"
+                data-i18n="About Us"
+                >About Us</a
+              >
+              <a
+                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
+                href="contact-us.html"
+                data-i18n="Contact Us"
+                >Contact Us</a
+              >
+            </div>
+
+            
+          </div>
+        </nav>
+        <!-- /Nav bar -->
+
+<!-- Menu  -->
+        <section
+          x-show="desktopMenuOpen"
+          @click.outside="desktopMenuOpen = false"
+          class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white"
+          style="display: none"
+        >
+          <div class="mx-auto flex max-w-[1200px] py-10">
+            <div class="w-[300px] border-r">
+              <div class="px-5">
+                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
+                  <span data-i18n="Washing Machines">Washing Machines</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
+                  <span data-i18n="Refrigerators">Refrigerators</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
+                  <span data-i18n="Air Conditioners">Air Conditioners</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
+                  <span data-i18n="Televisions">Televisions</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
+                  <span data-i18n="Kitchen Appliances">Kitchen Appliances</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
+                  <span data-i18n="Small Appliances">Small Appliances</span>
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex w-full justify-between">
+              <div class="flex gap-6">
+                <div class="mx-5">
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="Washing Machines">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung WD Pro</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG TurboWash 360</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool HE Washer</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Series 8</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="Refrigerators">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung French Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG InstaView</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool 4-Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Side-by-Side</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Daikin Inverter 12k</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Mitsubishi Mini Split</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG Dual Cool</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Carrier Xpower</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="Featured">FEATURED</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson Hot+Cool</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">iRobot Roomba j7+</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson V15 Detect</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Philips Air Fryer</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /Menu  -->
+
+        <!-- breadcrumbs  -->
+
+        <nav class="mx-auto w-full mt-4 max-w-[1200px] px-5">
+          <ul class="flex items-center">
+            <li class="cursor-pointer">
+              <a href="index.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-5 w-5"
+                >
+                  <path
+                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
+                  />
+                  <path
+                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <span class="mx-2 text-gray-500">&gt;</span>
+            </li>
+
+            <li class="text-gray-500">Samsung QLED 55"</li>
+          </ul>
+        </nav>
+        <!-- /breadcrumbs  -->
+      </div>
+
+      <section
+        class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10"
+      >
+        <!-- image gallery -->
+
+        <div class="container mx-auto px-4">
+          <img
+            class="w-full object-contain bg-gray-50 rounded"
+            src="./assets/images/cat-televisions.jpg"
+            alt="Samsung QLED 55 inch TV"
+          />
+          <!-- /image gallery  -->
+        </div>
+
+        <!-- description  -->
+
+        <div class="mx-auto px-5 lg:px-5">
+          <h2 class="pt-3 text-2xl font-bold lg:pt-0">SAMSUNG QLED 55"</h2>
+          <div class="mt-1">
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4 text-yellow-400"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4 text-yellow-400"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4 text-yellow-400"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4 text-yellow-400"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-4 w-4 text-gray-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              <p class="ml-3 text-sm text-gray-400">(445 reviews)</p>
+            </div>
+          </div>
+
+          <p class="mt-5 font-bold">
+            Availability: <span class="text-green-600">In Stock</span>
+          </p>
+          <p class="font-bold">Brand: <span class="font-normal">Samsung</span></p>
+          <p class="font-bold">
+            Category: <span class="font-normal">Televisions</span>
+          </p>
+          <p class="font-bold">
+            Model: <span class="font-normal">QN55Q80CAFXZA</span>
+          </p>
+
+          <p class="mt-4 text-4xl font-bold text-violet-900">
+            $799 <span class="text-xl text-gray-400 line-through ml-2">$999</span>
+          </p>
+
+          <p class="pt-5 text-sm leading-6 text-gray-500">
+            Experience breathtaking color and contrast with Samsung's QLED technology. The 55" Q80C delivers Quantum Dot color for over a billion shades, 4K AI upscaling, and a 120Hz refresh rate — perfect for sports, gaming, and 4K streaming. Alexa and Google Assistant built-in.
+          </p>
+
+          <div class="mt-6">
+            <p class="pb-2 text-xs text-gray-500">Quantity</p>
+            <div class="flex">
+              <button class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100">&minus;</button>
+              <div class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b">1</div>
+              <button class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100">&#43;</button>
+            </div>
+          </div>
+
+          <div class="mt-7 flex flex-row items-center gap-4">
+            <a href="contact-us.html"
+              class="flex h-12 px-6 items-center justify-center bg-violet-900 text-white text-sm duration-100 hover:bg-violet-800">
+              Request Info
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- product details  -->
+
+      <section class="container mx-auto max-w-[1200px] px-5 py-5 lg:py-10">
+        <h2 class="text-xl">Product details</h2>
+        <p class="mt-4 lg:w-3/4 text-sm leading-6 text-gray-600">
+          The Samsung Q80C QLED TV brings cinema-quality visuals to your living room. Powered by Quantum Dot technology, it produces over a billion shades of brilliant color that stay true even in bright rooms thanks to its anti-reflective screen. The Neural Quantum Processor 4K uses AI to upscale all your content to stunning 4K resolution. With a 120Hz refresh rate and AMD FreeSync Premium Pro, motion is ultra-smooth — ideal for sports and fast-paced gaming. Connect your devices easily with 4 HDMI 2.1 ports, USB inputs, Wi-Fi, and Bluetooth.
+        </p>
+
+        <table class="mt-7 w-full table-auto divide-y lg:w-1/2 border">
+          <tbody class="divide-y text-sm">
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50 w-1/3">Screen Size</td>
+              <td class="border px-4 py-2">55 inches</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Resolution</td>
+              <td class="border px-4 py-2">4K Ultra HD (3840 x 2160)</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Display Technology</td>
+              <td class="border px-4 py-2">QLED (Quantum Dot)</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Refresh Rate</td>
+              <td class="border px-4 py-2">120 Hz</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">HDR</td>
+              <td class="border px-4 py-2">HDR10+, HLG</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Smart TV</td>
+              <td class="border px-4 py-2">Tizen OS — Alexa & Google Assistant</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Connectivity</td>
+              <td class="border px-4 py-2">4x HDMI 2.1, 2x USB, Wi-Fi, Bluetooth</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Color</td>
+              <td class="border px-4 py-2">Titan Black</td>
+            </tr>
+            <tr>
+              <td class="border px-4 py-2 font-bold bg-gray-50">Warranty</td>
+              <td class="border px-4 py-2">1 Year Manufacturer</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <!-- /product details  -->
+
+      <!-- /description  -->
+
+      <p class="mx-auto mt-10 mb-5 max-w-[1200px] px-5">RELATED PRODUCTS</p>
+
+      <!-- Recommendations -->
+      <section class="container mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
+
+        <!-- 1: LG OLED 65" -->
+        <div class="flex flex-col border rounded overflow-hidden">
+          <div class="relative flex h-48 overflow-hidden">
+            <img class="h-full w-full object-cover" src="./assets/images/cat-televisions.jpg" alt="LG OLED 65&quot;" />
+            <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+              <p class="px-2 py-2 text-sm">&minus; 20% OFF</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="mt-2 text-sm uppercase font-medium">LG OLED 65" 4K Smart TV</p>
+            <p class="font-medium text-violet-900">$1,199 <span class="text-sm text-gray-500 line-through">$1,499</span></p>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <p class="text-sm text-gray-400 ml-1">(312)</p>
+            </div>
+            <a href="product-overview.html" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details">View Details</a>
+          </div>
+        </div>
+
+        <!-- 2: Samsung French Door Refrigerator -->
+        <div class="flex flex-col border rounded overflow-hidden">
+          <div class="relative flex h-48 overflow-hidden">
+            <img class="h-full w-full object-cover" src="./assets/images/cat-refrigerators.jpg" alt="Samsung French Door Refrigerator" />
+            <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+              <p class="px-2 py-2 text-sm">&minus; 15% OFF</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="mt-2 text-sm uppercase font-medium">Samsung French Door Refrigerator</p>
+            <p class="font-medium text-violet-900">$1,099 <span class="text-sm text-gray-500 line-through">$1,299</span></p>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <p class="text-sm text-gray-400 ml-1">(189)</p>
+            </div>
+            <a href="product-overview.html" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details">View Details</a>
+          </div>
+        </div>
+
+        <!-- 3: Daikin Inverter Split AC -->
+        <div class="flex flex-col border rounded overflow-hidden">
+          <div class="relative flex h-48 overflow-hidden">
+            <img class="h-full w-full object-cover" src="./assets/images/cat-air-conditioners.jpg" alt="Daikin 18,000 BTU Inverter Split AC" />
+            <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+              <p class="px-2 py-2 text-sm">&minus; 19% OFF</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="mt-2 text-sm uppercase font-medium">Daikin 18,000 BTU Inverter Split</p>
+            <p class="font-medium text-violet-900">$649 <span class="text-sm text-gray-500 line-through">$799</span></p>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <p class="text-sm text-gray-400 ml-1">(97)</p>
+            </div>
+            <a href="product-overview.html" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details">View Details</a>
+          </div>
+        </div>
+
+        <!-- 4: Bosch Series 8 Washer -->
+        <div class="flex flex-col border rounded overflow-hidden">
+          <div class="relative flex h-48 overflow-hidden">
+            <img class="h-full w-full object-cover" src="./assets/images/cat-washing-machines.jpg" alt="Bosch Series 8 Front Load Washer" />
+            <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
+              <p class="px-2 py-2 text-sm">&minus; 14% OFF</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p class="mt-2 text-sm uppercase font-medium">Bosch Series 8 Front Load Washer</p>
+            <p class="font-medium text-violet-900">$899 <span class="text-sm text-gray-500 line-through">$1,049</span></p>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+              <p class="text-sm text-gray-400 ml-1">(224)</p>
+            </div>
+            <a href="product-overview.html" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details">View Details</a>
+          </div>
+        </div>
+
+      </section>
+      <!-- /Recommendations -->
+
+            <!-- Desktop Footer -->
+      <div class='w-full bg-gray-900'>
+      <footer class='mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row'>
+        <div class='ml-5'>
+          <p class='mt-10 mb-5 text-xl font-bold text-violet-400'>Julio Cash <span class='text-amber-400'>Electronic Inc</span></p>
+          <p class='pl-0 text-sm text-gray-400' data-i18n='Your trusted source for home appliances and electronics in Hialeah, FL.'>Your trusted source for home appliances and electronics in Hialeah, FL.</p>
+          <div class='mt-10 flex gap-3'>
+            <a href='#'><img class='h-5 w-5 cursor-pointer brightness-0 invert' src='./assets/images/github.svg' alt='github icon' /></a>
+            <a href='#'><img class='h-5 w-5 cursor-pointer brightness-0 invert' src='./assets/images/telegram.svg' alt='telegram icon' /></a>
+            <a href='#'><img class='h-5 w-5 cursor-pointer brightness-0 invert' src='./assets/images/linkedin.svg' alt='linkedin icon' /></a>
+          </div>
+        </div>
+        <div class='grid grid-cols-2 md:grid-cols-3 gap-6'>
+          <div class='mx-5 mt-10'>
+            <p class='font-medium text-gray-400 uppercase tracking-wider text-xs' data-i18n='SHOP'>SHOP</p>
+            <ul class='text-sm leading-8 text-gray-300'>
+              <li><a href='catalog.html' data-category='washing-machines' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Washing Machines'>Washing Machines</a></li>
+              <li><a href='catalog.html' data-category='refrigerators' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Refrigerators'>Refrigerators</a></li>
+              <li><a href='catalog.html' data-category='air-conditioners' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Air Conditioners'>Air Conditioners</a></li>
+              <li><a href='catalog.html' data-category='televisions' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Televisions'>Televisions</a></li>
+              <li><a href='catalog.html' data-category='kitchen-appliances' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Kitchen Appliances'>Kitchen Appliances</a></li>
+              <li><a href='catalog.html' data-category='small-appliances' onclick='event.preventDefault();location.href=this.href+"?category="+this.dataset.category' data-i18n='Small Appliances'>Small Appliances</a></li>
+            </ul>
+          </div>
+          <div class='mx-5 mt-10'>
+            <p class='font-medium text-gray-400 uppercase tracking-wider text-xs' data-i18n='CUSTOMER SERVICE'>CUSTOMER SERVICE</p>
+            <ul class='text-sm leading-8 text-gray-300'>
+              <li><a href='#' data-i18n='Warranty'>Warranty</a></li>
+              <li><a href='#' data-i18n='Returns Policy'>Returns Policy</a></li>
+              <li><a href='#' data-i18n='Shipping Info'>Shipping Info</a></li>
+              <li><a href='#' data-i18n='FAQ'>FAQ</a></li>
+            </ul>
+          </div>
+          <div class='mx-5 mt-10'>
+            <p class='font-medium text-gray-400 uppercase tracking-wider text-xs' data-i18n='CONTACT'>CONTACT</p>
+            <ul class='text-sm leading-8 text-gray-300'>
+              <li><a href='about-us.html' data-i18n='About Us'>About Us</a></li>
+              <li><a href='contact-us.html' data-i18n='Contact Us'>Contact Us</a></li>
+              <li><a href='mailto:julioacosta777@myyahoo.com' class='break-all'>julioacosta777@myyahoo.com</a></li>
+              <li><a href='tel:+15613845205'>+1 (561) 384-5205</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      </div>
+      <!-- /Desktop Footer -->>
+
+
+    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+  </body>
+</html>
