@@ -9,10 +9,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
-    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#171717" />
+    <meta name="msapplication-TileColor" content="#171717" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Televisions | Julio Cash Electronic Inc</title>
+    <title>Televisions | Alopez Multiservices LLC</title>
   </head>
 
   <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false }">
@@ -20,49 +20,69 @@
 
       <!-- Header -->
       <div>
-        <header class="mx-auto w-full flex h-16 max-w-[1200px] items-center justify-between px-5">
-          <a href="index.html">
-            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
-          </a>
+        <header class="relative bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-700">
+          <div class="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-5">
+            <a href="index.html" class="min-w-0">
+              <span class="text-lg font-bold text-white sm:text-xl">Alopez <span class="text-cyan-200">Multiservices LLC</span></span>
+            </a>
 
-          <div class="md:hidden">
-            <button @click="mobileMenuOpen = ! mobileMenuOpen">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-              </svg>
-            </button>
-          </div>
-
-          <form class="hidden h-9 w-2/5 items-center border md:flex">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-3 h-4 w-4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
-            </svg>
-            <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" />
-            <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"><span data-i18n="Search">Search</span></button>
-          </form>
-
-          
-    
-          
-          <!-- Language Selector -->
-          <div class="relative hidden md:block ml-4 flex-shrink-0" id="lang-dropdown-container">
-            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
-              <span id="lang-flag"></span>
-              <span id="lang-label">EN</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </button>
-            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
-              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
-                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+            <div class="hidden items-center gap-6 md:flex">
+              <button
+                @click="desktopMenuOpen = ! desktopMenuOpen"
+                class="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium whitespace-nowrap text-white duration-100 hover:bg-white/20"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <span data-i18n="All categories">All categories</span>
               </button>
-              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
-                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="index.html" data-i18n="Home">Home</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="catalog.html" data-i18n="Catalog">Catalog</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="about-us.html" data-i18n="About Us">About Us</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
+            </div>
+
+            <form class="hidden h-10 w-48 items-center rounded-full bg-white pr-1 pl-4 lg:flex xl:w-64">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-neutral-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              <input class="w-full bg-transparent px-2 text-sm text-neutral-900 outline-none" type="search" placeholder="Search" data-i18n-placeholder="Search" />
+              <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-white hover:bg-cyan-500">
+                <span data-i18n="Search" class="sr-only">Search</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+              </button>
+            </form>
+
+            <div class="flex items-center gap-2">
+              <div class="relative flex-shrink-0" id="lang-dropdown-container">
+                <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
+                  <span id="lang-flag"></span>
+                  <span id="lang-label">EN</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-neutral-200 rounded shadow-lg z-50 overflow-hidden">
+                  <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="en">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+                  </button>
+                  <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="es">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+                  </button>
+                </div>
+              </div>
+
+              <button class="text-white md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
               </button>
             </div>
           </div>
-    </header>
+        </header>
 
         <!-- Burger menu (mobile) -->
         <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
@@ -72,8 +92,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-3 h-4 w-4">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
               </svg>
-              <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" />
-              <button type="submit" class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"><span data-i18n="Search">Search</span></button>
+              <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" data-i18n-placeholder="Search" />
+              <button type="submit" class="ml-auto h-full bg-cyan-500 px-4 hover:bg-cyan-400"><span data-i18n="Search">Search</span></button>
             </form>
             <ul class="text-center font-medium">
               <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
@@ -84,63 +104,44 @@
           </div>
         </section>
 
-        <!-- Nav bar -->
-        <nav class="relative bg-violet-900">
-          <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
-            <button @click="desktopMenuOpen = ! desktopMenuOpen"
-              class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400">
-              <div class="flex justify-around">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-1 h-6 w-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                </svg><span data-i18n="All categories">All categories</span></div>
-            </button>
-            <div class="mx-7 flex gap-8">
-              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="index.html" data-i18n="Home">Home</a>
-              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="catalog.html" data-i18n="Catalog">Catalog</a>
-              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="about-us.html" data-i18n="About Us">About Us</a>
-              <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
-            </div>
-          </div>
-        </nav>
-
         <!-- All categories dropdown -->
         <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
-          class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white" style="display: none">
+          class="absolute left-0 right-0 z-30 w-full border-b border-r border-l bg-white" style="display: none">
           <div class="mx-auto flex max-w-[1200px] py-10">
             <div class="w-[300px] border-r">
               <div class="px-5">
                 
-            <a href="category-washing-machines.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+            <a href="category-washing-machines.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
               Washing Machines
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
             </a>
 
-            <a href="category-refrigerators.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+            <a href="category-refrigerators.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
               Refrigerators
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
             </a>
 
-            <a href="category-air-conditioners.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+            <a href="category-air-conditioners.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
               Air Conditioners
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
             </a>
 
-            <a href="category-televisions.html" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400">
+            <a href="category-televisions.html" class="flex items-center gap-2 bg-cyan-500 py-2 px-3 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
               Televisions
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
             </a>
 
-            <a href="category-kitchen-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+            <a href="category-kitchen-appliances.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
               Kitchen Appliances
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
             </a>
 
-            <a href="category-small-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400">
+            <a href="category-small-appliances.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
               <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
               Small Appliances
               <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
@@ -151,7 +152,7 @@
             <div class="flex w-full justify-between">
               <div class="flex gap-6">
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">WASHING MACHINES</p>
+                  <p class="font-medium text-neutral-500">WASHING MACHINES</p>
                   <ul class="text-sm leading-8">
                     <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
                     <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
@@ -160,7 +161,7 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">REFRIGERATORS</p>
+                  <p class="font-medium text-neutral-500">REFRIGERATORS</p>
                   <ul class="text-sm leading-8">
                     <li><a href="category-refrigerators.html">Samsung French Door</a></li>
                     <li><a href="category-refrigerators.html">LG InstaView</a></li>
@@ -169,7 +170,7 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">AIR CONDITIONERS</p>
+                  <p class="font-medium text-neutral-500">AIR CONDITIONERS</p>
                   <ul class="text-sm leading-8">
                     <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
                     <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
@@ -178,7 +179,7 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">FEATURED</p>
+                  <p class="font-medium text-neutral-500">FEATURED</p>
                   <ul class="text-sm leading-8">
                     <li><a href="category-small-appliances.html">Dyson Hot+Cool</a></li>
                     <li><a href="category-small-appliances.html">iRobot Roomba j7+</a></li>
@@ -196,15 +197,15 @@
           <nav>
             <ul class="flex items-center text-sm">
               <li>
-                <a href="index.html" class="text-gray-500 hover:text-violet-900">
+                <a href="index.html" class="text-neutral-500 hover:text-neutral-900">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
                     <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
                     <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
                   </svg>
                 </a>
               </li>
-              <li><span class="mx-2 text-gray-500">&gt;</span></li>
-              <li class="text-gray-500">Televisions</li>
+              <li><span class="mx-2 text-neutral-500">&gt;</span></li>
+              <li class="text-neutral-500">Televisions</li>
             </ul>
           </nav>
         </div>
@@ -224,28 +225,28 @@
                   <input type="checkbox" />
                   <p class="ml-4">OLED</p>
                 </div>
-                <div><p class="text-gray-500">(34)</p></div>
+                <div><p class="text-neutral-500">(34)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">QLED</p>
                 </div>
-                <div><p class="text-gray-500">(41)</p></div>
+                <div><p class="text-neutral-500">(41)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">4K UHD</p>
                 </div>
-                <div><p class="text-gray-500">(67)</p></div>
+                <div><p class="text-neutral-500">(67)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">8K</p>
                 </div>
-                <div><p class="text-gray-500">(12)</p></div>
+                <div><p class="text-neutral-500">(12)</p></div>
               </div>
             </div>
           </div>
@@ -258,28 +259,28 @@
                   <input type="checkbox" />
                   <p class="ml-4">Samsung</p>
                 </div>
-                <div><p class="text-gray-500">(45)</p></div>
+                <div><p class="text-neutral-500">(45)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">LG</p>
                 </div>
-                <div><p class="text-gray-500">(38)</p></div>
+                <div><p class="text-neutral-500">(38)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">Sony</p>
                 </div>
-                <div><p class="text-gray-500">(27)</p></div>
+                <div><p class="text-neutral-500">(27)</p></div>
               </div>
               <div class="flex w-full justify-between">
                 <div class="flex justify-center items-center">
                   <input type="checkbox" />
                   <p class="ml-4">TCL</p>
                 </div>
-                <div><p class="text-gray-500">(34)</p></div>
+                <div><p class="text-neutral-500">(34)</p></div>
               </div>
             </div>
           </div>
@@ -300,8 +301,8 @@
               <p class="mb-3 font-medium">RATING</p>
               <div class="flex flex-col gap-2">
                 <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
-                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
-                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
               </div>
             </div>
           </div>
@@ -321,7 +322,7 @@
               </button>
             </div>
             <div class="hidden gap-3 lg:flex">
-              <button class="border bg-amber-400 py-2 px-2">
+              <button class="border bg-cyan-500 py-2 px-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
                 </svg>
@@ -336,144 +337,124 @@
 
           <section class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-3">
             <!-- PRODUCTOS:START -->
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-1.jpg" alt="Samsung QLED 55"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 20% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;20%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-1.jpg" alt="Samsung QLED 55"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Samsung QLED 55"</p>
-                <p class="font-medium text-violet-900">$799 <span class="text-sm text-gray-500 line-through">$999</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(445)</p></div>
-                <a href="product-detail.html#n=Samsung+QLED+55%22&p=799&po=999&img=tv-1.jpg&b=Samsung&m=QN55Q80CAFXZA&d=QLED+4K%2C+55+pulgadas%2C+120Hz&r=4.7&rv=445&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Samsung QLED 55"</p>
+                <p class="mt-1 font-medium text-neutral-900">$799 <span class="text-sm text-neutral-500 line-through">$999</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(445)</p></div>
+                <a href="product-detail.html#n=Samsung+QLED+55%22&p=799&po=999&img=tv-1.jpg&b=Samsung&m=QN55Q80CAFXZA&d=QLED+4K%2C+55+pulgadas%2C+120Hz&r=4.7&rv=445&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-2.jpg" alt="LG OLED 65"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 21% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;21%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-2.jpg" alt="LG OLED 65"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">LG OLED 65"</p>
-                <p class="font-medium text-violet-900">$1,499 <span class="text-sm text-gray-500 line-through">$1,899</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(312)</p></div>
-                <a href="product-detail.html#n=LG+OLED+65%22&p=1499&po=1899&img=tv-2.jpg&b=LG&m=OLED65C3PSA&d=OLED+evo+4K%2C+65+pulgadas%2C+120Hz%2C+G-Sync&r=4.9&rv=312&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">LG OLED 65"</p>
+                <p class="mt-1 font-medium text-neutral-900">$1,499 <span class="text-sm text-neutral-500 line-through">$1,899</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(312)</p></div>
+                <a href="product-detail.html#n=LG+OLED+65%22&p=1499&po=1899&img=tv-2.jpg&b=LG&m=OLED65C3PSA&d=OLED+evo+4K%2C+65+pulgadas%2C+120Hz%2C+G-Sync&r=4.9&rv=312&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-3.jpg" alt="Sony Bravia X90L 55"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 15% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;15%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-3.jpg" alt="Sony Bravia X90L 55"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Sony Bravia X90L 55"</p>
-                <p class="font-medium text-violet-900">$1,099 <span class="text-sm text-gray-500 line-through">$1,299</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(178)</p></div>
-                <a href="product-detail.html#n=Sony+Bravia+X90L+55%22&p=1099&po=1299&img=tv-3.jpg&b=Sony&m=XR55X90L&d=Full+Array+LED+4K%2C+55+pulgadas%2C+Google+TV&r=4.6&rv=178&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Sony Bravia X90L 55"</p>
+                <p class="mt-1 font-medium text-neutral-900">$1,099 <span class="text-sm text-neutral-500 line-through">$1,299</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(178)</p></div>
+                <a href="product-detail.html#n=Sony+Bravia+X90L+55%22&p=1099&po=1299&img=tv-3.jpg&b=Sony&m=XR55X90L&d=Full+Array+LED+4K%2C+55+pulgadas%2C+Google+TV&r=4.6&rv=178&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-4.jpg" alt="TCL QLED 50"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 20% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;20%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-4.jpg" alt="TCL QLED 50"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">TCL QLED 50"</p>
-                <p class="font-medium text-violet-900">$469 <span class="text-sm text-gray-500 line-through">$589</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(231)</p></div>
-                <a href="product-detail.html#n=TCL+QLED+50%22&p=469&po=589&img=tv-4.jpg&b=TCL&m=50C645&d=QLED+4K%2C+50+pulgadas%2C+Google+TV&r=4.5&rv=231&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">TCL QLED 50"</p>
+                <p class="mt-1 font-medium text-neutral-900">$469 <span class="text-sm text-neutral-500 line-through">$589</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(231)</p></div>
+                <a href="product-detail.html#n=TCL+QLED+50%22&p=469&po=589&img=tv-4.jpg&b=TCL&m=50C645&d=QLED+4K%2C+50+pulgadas%2C+Google+TV&r=4.5&rv=231&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-5.jpg" alt="Hisense ULED 55"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;18%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-5.jpg" alt="Hisense ULED 55"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Hisense ULED 55"</p>
-                <p class="font-medium text-violet-900">$699 <span class="text-sm text-gray-500 line-through">$849</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(184)</p></div>
-                <a href="product-detail.html#n=Hisense+ULED+55%22&p=699&po=849&img=tv-5.jpg&b=Hisense&m=55U7K&d=ULED+4K%2C+144Hz%2C+Dolby+Vision%2C+55+pulgadas&r=4.6&rv=184&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Hisense ULED 55"</p>
+                <p class="mt-1 font-medium text-neutral-900">$699 <span class="text-sm text-neutral-500 line-through">$849</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(184)</p></div>
+                <a href="product-detail.html#n=Hisense+ULED+55%22&p=699&po=849&img=tv-5.jpg&b=Hisense&m=55U7K&d=ULED+4K%2C+144Hz%2C+Dolby+Vision%2C+55+pulgadas&r=4.6&rv=184&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-6.jpg" alt="Samsung Crystal UHD 65"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 17% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;17%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-6.jpg" alt="Samsung Crystal UHD 65"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Samsung Crystal UHD 65"</p>
-                <p class="font-medium text-violet-900">$749 <span class="text-sm text-gray-500 line-through">$899</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(276)</p></div>
-                <a href="product-detail.html#n=Samsung+Crystal+UHD+65%22&p=749&po=899&img=tv-6.jpg&b=Samsung&m=UN65CU7000&d=Crystal+UHD+4K%2C+65+pulgadas%2C+Smart+TV&r=4.4&rv=276&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Samsung Crystal UHD 65"</p>
+                <p class="mt-1 font-medium text-neutral-900">$749 <span class="text-sm text-neutral-500 line-through">$899</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(276)</p></div>
+                <a href="product-detail.html#n=Samsung+Crystal+UHD+65%22&p=749&po=899&img=tv-6.jpg&b=Samsung&m=UN65CU7000&d=Crystal+UHD+4K%2C+65+pulgadas%2C+Smart+TV&r=4.4&rv=276&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-7.jpg" alt="LG NanoCell 55"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 18% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;18%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-7.jpg" alt="LG NanoCell 55"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">LG NanoCell 55"</p>
-                <p class="font-medium text-violet-900">$629 <span class="text-sm text-gray-500 line-through">$769</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(159)</p></div>
-                <a href="product-detail.html#n=LG+NanoCell+55%22&p=629&po=769&img=tv-7.jpg&b=LG&m=55NANO77SRA&d=NanoCell+4K%2C+55+pulgadas%2C+ThinQ+AI&r=4.5&rv=159&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">LG NanoCell 55"</p>
+                <p class="mt-1 font-medium text-neutral-900">$629 <span class="text-sm text-neutral-500 line-through">$769</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(159)</p></div>
+                <a href="product-detail.html#n=LG+NanoCell+55%22&p=629&po=769&img=tv-7.jpg&b=LG&m=55NANO77SRA&d=NanoCell+4K%2C+55+pulgadas%2C+ThinQ+AI&r=4.5&rv=159&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-8.jpg" alt="Xiaomi TV A Pro 43"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 19% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;19%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-8.jpg" alt="Xiaomi TV A Pro 43"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Xiaomi TV A Pro 43"</p>
-                <p class="font-medium text-violet-900">$349 <span class="text-sm text-gray-500 line-through">$429</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-gray-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(112)</p></div>
-                <a href="product-detail.html#n=Xiaomi+TV+A+Pro+43%22&p=349&po=429&img=tv-8.jpg&b=Xiaomi&m=L43M8-A2LA&d=Smart+TV+4K%2C+43+pulgadas%2C+Google+TV&r=4.3&rv=112&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Xiaomi TV A Pro 43"</p>
+                <p class="mt-1 font-medium text-neutral-900">$349 <span class="text-sm text-neutral-500 line-through">$429</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(112)</p></div>
+                <a href="product-detail.html#n=Xiaomi+TV+A+Pro+43%22&p=349&po=429&img=tv-8.jpg&b=Xiaomi&m=L43M8-A2LA&d=Smart+TV+4K%2C+43+pulgadas%2C+Google+TV&r=4.3&rv=112&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-9.jpg" alt="Philips Ambilight 55"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 17% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;17%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-9.jpg" alt="Philips Ambilight 55"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Philips Ambilight 55"</p>
-                <p class="font-medium text-violet-900">$799 <span class="text-sm text-gray-500 line-through">$959</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(97)</p></div>
-                <a href="product-detail.html#n=Philips+Ambilight+55%22&p=799&po=959&img=tv-9.jpg&b=Philips&m=55PUS8808&d=4K+UHD%2C+Ambilight%2C+55+pulgadas%2C+120Hz&r=4.6&rv=97&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Philips Ambilight 55"</p>
+                <p class="mt-1 font-medium text-neutral-900">$799 <span class="text-sm text-neutral-500 line-through">$959</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(97)</p></div>
+                <a href="product-detail.html#n=Philips+Ambilight+55%22&p=799&po=959&img=tv-9.jpg&b=Philips&m=55PUS8808&d=4K+UHD%2C+Ambilight%2C+55+pulgadas%2C+120Hz&r=4.6&rv=97&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
-            <div class="flex flex-col border rounded overflow-hidden">
-              <div class="relative flex h-56 overflow-hidden">
-                <img class="h-full w-full object-contain" src="./assets/images/tv-10.jpg" alt="Sony Bravia X85K 65"" />
-                <div class="absolute right-1 mt-3 flex items-center justify-center bg-amber-400">
-                  <p class="px-2 py-2 text-sm">&minus; 14% OFF</p>
-                </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;14%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/tv-10.jpg" alt="Sony Bravia X85K 65"" />
               </div>
-              <div class="p-3">
-                <p class="mt-2 text-sm uppercase font-medium">Sony Bravia X85K 65"</p>
-                <p class="font-medium text-violet-900">$1,199 <span class="text-sm text-gray-500 line-through">$1,399</span></p>
-                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-gray-400 ml-1">(143)</p></div>
-                <a href="product-detail.html#n=Sony+Bravia+X85K+65%22&p=1199&po=1399&img=tv-10.jpg&b=Sony&m=KD-65X85K&d=LED+4K%2C+65+pulgadas%2C+120Hz%2C+Google+TV&r=4.8&rv=143&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Sony Bravia X85K 65"</p>
+                <p class="mt-1 font-medium text-neutral-900">$1,199 <span class="text-sm text-neutral-500 line-through">$1,399</span></p>
+                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><p class="text-sm text-neutral-400 ml-1">(143)</p></div>
+                <a href="product-detail.html#n=Sony+Bravia+X85K+65%22&p=1199&po=1399&img=tv-10.jpg&b=Sony&m=KD-65X85K&d=LED+4K%2C+65+pulgadas%2C+120Hz%2C+Google+TV&r=4.8&rv=143&cat=televisions" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>
             <!-- PRODUCTOS:END -->
@@ -484,7 +465,7 @@
       <!-- Footer -->
       <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
         <div class="ml-5">
-          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+          <p class="mt-10 mb-5 text-xl font-bold text-neutral-900">Alopez <span class="text-cyan-600">Multiservices LLC</span></p>
           <p class="pl-0">Quality home appliances <br /> at the best prices.</p>
           <div class="mt-10 flex gap-3">
             <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/github.svg" alt="github icon" /></a>
@@ -494,7 +475,7 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500" data-i18n="CATEGORIES">CATEGORIES</p>
+            <p class="font-medium text-neutral-500" data-i18n="CATEGORIES">CATEGORIES</p>
             <ul class="text-sm leading-8">
               <li><a href="category-washing-machines.html">Washing Machines</a></li>
               <li><a href="category-refrigerators.html">Refrigerators</a></li>
@@ -503,7 +484,7 @@
             </ul>
           </div>
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">SUPPORT</p>
+            <p class="font-medium text-neutral-500">SUPPORT</p>
             <ul class="text-sm leading-8">
               <li><a href="#">Pricing</a></li>
               <li><a href="#">Docs</a></li>
@@ -512,7 +493,7 @@
             </ul>
           </div>
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">COMPANY</p>
+            <p class="font-medium text-neutral-500">COMPANY</p>
             <ul class="text-sm leading-8">
               <li><a href="about-us.html" data-i18n="About Us">About Us</a></li>
               <li><a href="#">Terms</a></li>
@@ -521,7 +502,7 @@
             </ul>
           </div>
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">DELIVERY</p>
+            <p class="font-medium text-neutral-500">DELIVERY</p>
             <ul class="text-sm leading-8">
               <li><a href="#">Countries</a></li>
               <li><a href="#">Restrictions</a></li>
@@ -532,9 +513,9 @@
         </div>
       </footer>
 
-      <section class="h-11 bg-amber-400">
+      <section class="h-11 bg-cyan-500">
         <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
-          <p>&copy; Julio Cash Electronic Inc, 2024</p>
+          <p>&copy; Alopez Multiservices LLC, 2024</p>
           <div class="flex items-center space-x-3">
             <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" alt="Visa" />
             <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="AE" />

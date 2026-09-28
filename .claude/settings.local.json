@@ -6,7 +6,8 @@
       "Bash(curl -sL -o ac-1.jpg \"https://www.sylvane.com/cdn/shop/files/daikin-entra-mini-split-heat-pump-air-handler-angle-1_450x450.png?v=1771612239\")",
       "Bash(curl -sL -o tv-6.jpg \"https://images.samsung.com/is/image/samsung/p6pim/us/qn55q6faafxza/gallery/us-qled-q6f-qn55q6faafxza-548898742\")",
       "Bash(curl -L -o \"c:/Laura/Trabajo/Freelance Personal/tailwind-ecommerce/src/assets/images/cat-air-conditioners.jpg\" \"https://images.unsplash.com/photo-3iLFQj2bXq0?w=600&q=80\" -w \"%{http_code} %{size_download}\" -s)",
-      "WebFetch(domain:unsplash.com)"
+      "WebFetch(domain:unsplash.com)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --version)"
     ]
   }
 }

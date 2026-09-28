@@ -1,4 +1,4 @@
-// ─── Julio Cash Electronic Inc — Language Switcher ────────────────────────────
+// ─── Alopez Multiservices LLC — Language Switcher ────────────────────────────
 
 const TRANSLATIONS = {
   es: {
@@ -25,30 +25,44 @@ const TRANSLATIONS = {
     'Bottom-Freezer': 'Congelador Inferior',
 
     // ── Index — Hero ─────────────────────────────────────────────────────────
-    'The Best Selection in Home Appliances': 'La Mejor Selección en Electrodomésticos para el Hogar',
-    'Find the appliances your home needs quality, technology, and the best prices all in one place.': 'Encuentra los electrodomésticos que tu hogar necesita: calidad, tecnología y los mejores precios en un solo lugar.',
-    'Shop Now': 'Comprar Ahora',
+    'Quality Appliances for Every Home': 'Electrodomésticos de Calidad para Cada Hogar',
+    'Serving Miami Gardens and South Florida with reliable appliances, fast delivery, and prices you can trust.': 'Servimos a Miami Gardens y el sur de Florida con electrodomésticos confiables, entrega rápida y precios en los que puedes confiar.',
     'Go to Catalog': 'Ir al Catálogo',
+    'View Catalog': 'Ver Catálogo',
 
     // ── Index — Section headings ─────────────────────────────────────────────
     'SHOP BY CATEGORY': 'COMPRAR POR CATEGORÍA',
+    'Shop now': 'Ver ahora',
     'New Arrivals': 'Nuevas Llegadas',
     'View All': 'Ver Todo',
 
-    // ── Index — Feature badges ───────────────────────────────────────────────
+    // ── Index — Reliable Service section ─────────────────────────────────────
+    'Reliable Service, From Purchase to Delivery': 'Servicio Confiable, de la Compra a la Entrega',
     'Free Delivery': 'Envío Gratis',
-    'Orders from $200': 'Pedidos desde $200',
+    'On orders over $200 we deliver straight to your door across Miami Gardens and South Florida, with careful handling so your new appliance arrives ready to use.': 'En pedidos mayores a $200 entregamos directamente en tu puerta en Miami Gardens y el sur de Florida, con manejo cuidadoso para que tu nuevo electrodoméstico llegue listo para usar.',
     'Money returns': 'Devolución de dinero',
-    '30 Days guarantee': 'Garantía de 30 días',
+    'Not the right fit? Return it within 30 days for a full refund. No complicated forms, no hassle, just a straightforward process built around your satisfaction.': '¿No es lo que buscabas? Devuélvelo dentro de 30 días para un reembolso completo. Sin formularios complicados, sin complicaciones, solo un proceso sencillo pensado en tu satisfacción.',
     '24/7 Supports': 'Soporte 24/7',
-    'Consumer support': 'Atención al consumidor',
+    'Questions before or after your purchase? Reach our team anytime by phone, email, or WhatsApp for real support from real people, whenever you need it.': '¿Tienes preguntas antes o después de tu compra? Contacta a nuestro equipo en cualquier momento por teléfono, correo o WhatsApp para recibir soporte real de personas reales, cuando lo necesites.',
 
     // ── Index — Promo banner ─────────────────────────────────────────────────
     'ONLINE EXCLUSIVE': 'EXCLUSIVO EN LÍNEA',
     'REFRIGERATORS, SELECTED MODELS': 'REFRIGERADORAS, MODELOS SELECCIONADOS',
     '15% OFF TODAY ONLY': '15% DE DESCUENTO HOY',
+    'View Refrigerators': 'Ver Refrigeradoras',
     'RECOMMENDED FOR YOU': 'RECOMENDADOS PARA TI',
     'TOP NEW ARRIVAL': 'NUEVAS LLEGADAS DESTACADAS',
+
+    // ── Index — Testimonials ─────────────────────────────────────────────────
+    'TRUSTED BY OUR CUSTOMERS': 'LA CONFIANZA DE NUESTROS CLIENTES',
+    "You're in Good Company": 'Estás en Buena Compañía',
+    'Verified Customer': 'Cliente Verificado',
+    'Fast delivery and the fridge works perfectly.': 'Entrega rápida y la refrigeradora funciona perfectamente.',
+    'We ordered a French door refrigerator and it arrived faster than expected. The team even helped us get it set up the same day.': 'Pedimos una refrigeradora French door y llegó más rápido de lo esperado. El equipo hasta nos ayudó a instalarla el mismo día.',
+    'Support that actually answers on WhatsApp.': 'Soporte que realmente responde por WhatsApp.',
+    'Had a question about my air conditioner install and got a real answer within minutes. That kind of support is hard to find.': 'Tenía una pregunta sobre la instalación de mi aire acondicionado y recibí una respuesta real en minutos. Ese tipo de soporte es difícil de encontrar.',
+    'Great prices without sacrificing quality.': 'Excelentes precios sin sacrificar calidad.',
+    'Compared prices all over South Florida and Alopez Multiservices had the best deal on our washer and dryer set, no compromises.': 'Comparé precios en todo el sur de Florida y Alopez Multiservices tenía la mejor oferta en nuestro set de lavadora y secadora, sin comprometer calidad.',
 
     // ── Product Detail ───────────────────────────────────────────────────────
     'Availability': 'Disponibilidad',
@@ -87,7 +101,7 @@ const TRANSLATIONS = {
     'Returns Policy': 'Política de Devoluciones',
     'Shipping Info': 'Información de Envío',
     'FAQ': 'Preguntas Frecuentes',
-    'Your trusted source for home appliances and electronics in Hialeah, FL.': 'Tu fuente de confianza para electrodomésticos y electrónica en Hialeah, FL.',
+    'Your trusted source for home appliances and electronics in Miami Gardens, FL.': 'Tu fuente de confianza para electrodomésticos y electrónica en Miami Gardens, FL.',
 
     // ── About Us ─────────────────────────────────────────────────────────────
     'About Us Page Title': 'Nosotros',
@@ -138,14 +152,19 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
   const dict = lang === 'es' ? TRANSLATIONS.es : null;
 
+  // El texto/placeholder original del HTML (inglés) se guarda la primera vez
+  // y se usa como fallback en vez de la clave, para que una clave genérica
+  // (p.ej. "About Us Page Title") nunca se muestre tal cual en pantalla.
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    el.textContent = (dict && dict[key]) ? dict[key] : key;
+    if (el.dataset.i18nDefault === undefined) el.dataset.i18nDefault = el.textContent;
+    el.textContent = (dict && dict[key]) ? dict[key] : el.dataset.i18nDefault;
   });
 
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
-    el.placeholder = (dict && dict[key]) ? dict[key] : key;
+    if (el.dataset.i18nPlaceholderDefault === undefined) el.dataset.i18nPlaceholderDefault = el.placeholder;
+    el.placeholder = (dict && dict[key]) ? dict[key] : el.dataset.i18nPlaceholderDefault;
   });
 
   // Update dropdown button display
@@ -157,9 +176,9 @@ function applyLang(lang) {
   // Highlight active option in menu
   document.querySelectorAll('.lang-option').forEach(opt => {
     const active = opt.dataset.lang === lang;
-    opt.classList.toggle('bg-amber-50', active);
+    opt.classList.toggle('bg-cyan-50', active);
     opt.classList.toggle('font-semibold', active);
-    opt.classList.toggle('text-violet-900', active);
+    opt.classList.toggle('text-cyan-900', active);
   });
 
   // Notificar a páginas con contenido dinámico

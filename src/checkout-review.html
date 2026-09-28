@@ -11,8 +11,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
-    <meta name="msapplication-TileColor" content="#ffc40d" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#171717" />
+    <meta name="msapplication-TileColor" content="#171717" />
     <meta name="theme-color" content="#ffffff" />
     <title>Checkout</title>
   </head>
@@ -20,212 +20,156 @@
   <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
     <main class="h-screen flex flex-col justify-between">
       <div>
-        <!-- Header -->
-        <header
-          class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5"
-        >
-          <a href="index.html">
-            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
-          </a>
+            <!-- Header -->
+    <header class="relative bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-700">
+      <div class="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-5">
+        <a href="index.html" class="min-w-0">
+          <span class="text-lg font-bold text-white sm:text-xl">Alopez <span class="text-cyan-200">Multiservices LLC</span></span>
+        </a>
 
-          <form class="hidden h-9 w-2/5 items-center border md:flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="mx-3 h-4 w-4"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
+        <div class="hidden items-center gap-6 md:flex">
+          <button
+            @click="desktopMenuOpen = ! desktopMenuOpen"
+            class="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium whitespace-nowrap text-white duration-100 hover:bg-white/20"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
+            <span data-i18n="All categories">All categories</span>
+          </button>
 
-            <input
-              class="hidden w-11/12 outline-none md:block"
-              type="search"
-              placeholder="Search"
-            />
+          <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="index.html" data-i18n="Home">Home</a>
+          <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="catalog.html" data-i18n="Catalog">Catalog</a>
+          <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="about-us.html" data-i18n="About Us">About Us</a>
+          <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
+        </div>
 
-            <button
-              class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
-            ><span data-i18n="Search">Search</span></button>
-          </form>
+        <form class="hidden h-10 w-48 items-center rounded-full bg-white pr-1 pl-4 lg:flex xl:w-64">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-neutral-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+          </svg>
+          <input class="w-full bg-transparent px-2 text-sm text-neutral-900 outline-none" type="search" placeholder="Search" data-i18n-placeholder="Search" />
+          <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-white hover:bg-cyan-500">
+            <span data-i18n="Search" class="sr-only">Search</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </button>
+        </form>
 
-          
-    
-          
-          <!-- Language Selector -->
-      <div class="flex items-center gap-2">
+        <!-- Language Selector + CTA + Mobile Hamburger -->
+        <div class="flex items-center gap-2">
           <div class="relative flex-shrink-0" id="lang-dropdown-container">
-            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+            <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
               <span id="lang-flag"></span>
               <span id="lang-label">EN</span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>
             </button>
-            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
-              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-neutral-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="en">
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
               </button>
-              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="es">
                 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
               </button>
             </div>
           </div>
+
           <!-- Mobile hamburger -->
-          <button class="md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+          <button class="text-white md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
-        </div><!-- /flex wrapper -->
+      </div><!-- /flex wrapper -->
+      </div>
     </header>
-        <!-- /Header -->
+    <!-- /Header -->
 
-        <!-- Burger menu  -->
-        <section
-          x-show="mobileMenuOpen"
-          @click.outside="mobileMenuOpen = false"
-          class="absolute left-0 right-0 z-50 h-screen w-full bg-white"
-          style="display: none"
-        >
-          <div class="mx-auto">
-                        <form class="my-4 mx-5 flex h-9 items-center border">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="mx-3 h-4 w-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-
-              <input
-                class="hidden w-11/12 outline-none md:block"
-                type="search"
-                placeholder="Search"
-              />
-
-              <button
-                type="submit"
-                class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
-              ><span data-i18n="Search">Search</span></button>
-            </form>
-            <ul class="text-center font-medium">
-              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
-              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
-              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
-              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
-            </ul>
-          </div>
-        </section>
-        <!-- /Burger menu  -->
-
-        <!-- Nav bar -->
-        <!-- hidden on small devices -->
-
-        <nav class="relative bg-violet-900">
-          <div
-            class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex"
+    <!-- Burger menu  -->
+    <section
+      x-show="mobileMenuOpen"
+      @click.outside="mobileMenuOpen = false"
+      class="absolute left-0 right-0 z-50 h-screen w-full bg-white"
+      style="display: none"
+    >
+      <div class="mx-auto">
+                <form class="my-4 mx-5 flex h-9 items-center border">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="mx-3 h-4 w-4"
           >
-            <button
-              @click="desktopMenuOpen = ! desktopMenuOpen"
-              class="ml-5 flex h-full w-auto cursor-pointer items-center justify-center bg-amber-400 px-4 whitespace-nowrap"
-            >
-              <div class="flex justify-around" href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="mx-1 h-6 w-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg><span data-i18n="All categories">All categories</span></div>
-            </button>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
 
-            <div class="mx-7 flex gap-8">
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="index.html"
-                data-i18n="Home"
-                >Home</a
-              >
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="catalog.html"
-                data-i18n="Catalog"
-                >Catalog</a
-              >
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="about-us.html"
-                data-i18n="About Us"
-                >About Us</a
-              >
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="contact-us.html"
-                data-i18n="Contact Us"
-                >Contact Us</a
-              >
-            </div>
+          <input
+            class="hidden w-11/12 outline-none md:block"
+            type="search"
+            placeholder="Search"
+            data-i18n-placeholder="Search"
+          />
 
-            
-          </div>
-        </nav>
-        <!-- /Nav bar -->
+          <button
+            type="submit"
+            class="ml-auto h-full bg-cyan-500 px-4 hover:bg-cyan-400"
+          ><span data-i18n="Search">Search</span></button>
+        </form>
+        <ul class="text-center font-medium">
+          <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+          <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+          <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+          <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- /Burger menu  -->
 
 <!-- Menu  -->
         <section
           x-show="desktopMenuOpen"
           @click.outside="desktopMenuOpen = false"
-          class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white"
+          class="absolute left-0 right-0 z-30 w-full border-b border-r border-l bg-white"
           style="display: none"
         >
           <div class="mx-auto flex max-w-[1200px] py-10">
             <div class="w-[300px] border-r">
               <div class="px-5">
-                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 bg-cyan-500 py-2 px-3 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
                   <span data-i18n="Washing Machines">Washing Machines</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
                   <span data-i18n="Refrigerators">Refrigerators</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
                   <span data-i18n="Air Conditioners">Air Conditioners</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
                   <span data-i18n="Televisions">Televisions</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
                   <span data-i18n="Kitchen Appliances">Kitchen Appliances</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
                   <span data-i18n="Small Appliances">Small Appliances</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
@@ -236,8 +180,8 @@
             <div class="flex w-full justify-between">
               <div class="flex gap-6">
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500 uppercase" data-i18n="Washing Machines">WASHING MACHINES</p>
-                  <ul class="text-sm leading-8 text-gray-800">
+                  <p class="font-medium text-neutral-500 uppercase" data-i18n="Washing Machines">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8 text-neutral-800">
                     <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung WD Pro</a></li>
                     <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG TurboWash 360</a></li>
                     <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool HE Washer</a></li>
@@ -245,8 +189,8 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500 uppercase" data-i18n="Refrigerators">REFRIGERATORS</p>
-                  <ul class="text-sm leading-8 text-gray-800">
+                  <p class="font-medium text-neutral-500 uppercase" data-i18n="Refrigerators">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8 text-neutral-800">
                     <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung French Door</a></li>
                     <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG InstaView</a></li>
                     <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool 4-Door</a></li>
@@ -254,8 +198,8 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500 uppercase" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
-                  <ul class="text-sm leading-8 text-gray-800">
+                  <p class="font-medium text-neutral-500 uppercase" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8 text-neutral-800">
                     <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Daikin Inverter 12k</a></li>
                     <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Mitsubishi Mini Split</a></li>
                     <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG Dual Cool</a></li>
@@ -263,8 +207,8 @@
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500 uppercase" data-i18n="Featured">FEATURED</p>
-                  <ul class="text-sm leading-8 text-gray-800">
+                  <p class="font-medium text-neutral-500 uppercase" data-i18n="Featured">FEATURED</p>
+                  <ul class="text-sm leading-8 text-neutral-800">
                     <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson Hot+Cool</a></li>
                     <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">iRobot Roomba j7+</a></li>
                     <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson V15 Detect</a></li>
@@ -299,10 +243,10 @@
               </a>
             </li>
             <li>
-              <span class="mx-2 text-gray-500">&gt;</span>
+              <span class="mx-2 text-neutral-500">&gt;</span>
             </li>
 
-            <li class="text-gray-500">Checkout</li>
+            <li class="text-neutral-500">Checkout</li>
           </ul>
         </nav>
         <!-- /breadcrumbs  -->
@@ -357,12 +301,12 @@
                       />
                     </svg>
                   </div>
-                  <p class="text-sm text-gray-400">Size: XL</p>
-                  <p class="py-3 text-xl font-bold text-violet-900">$320</p>
+                  <p class="text-sm text-neutral-400">Size: XL</p>
+                  <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
                   <div class="mt-2 flex w-full items-center justify-between">
                     <div class="flex items-center justify-center">
                       <div
-                        class="flex cursor-text items-center justify-center active:ring-gray-500"
+                        class="flex cursor-text items-center justify-center active:ring-neutral-500"
                       >
                         Quantity: 1
                       </div>
@@ -394,12 +338,12 @@
                       />
                     </svg>
                   </div>
-                  <p class="text-sm text-gray-400">Size: XL</p>
-                  <p class="py-3 text-xl font-bold text-violet-900">$320</p>
+                  <p class="text-sm text-neutral-400">Size: XL</p>
+                  <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
                   <div class="mt-2 flex w-full items-center justify-between">
                     <div class="flex items-center justify-center">
                       <div
-                        class="flex cursor-text items-center justify-center active:ring-gray-500"
+                        class="flex cursor-text items-center justify-center active:ring-neutral-500"
                       >
                         Quantity: 1
                       </div>
@@ -431,12 +375,12 @@
                       />
                     </svg>
                   </div>
-                  <p class="text-sm text-gray-400">Size: XL</p>
-                  <p class="py-3 text-xl font-bold text-violet-900">$320</p>
+                  <p class="text-sm text-neutral-400">Size: XL</p>
+                  <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
                   <div class="mt-2 flex w-full items-center justify-between">
                     <div class="flex items-center justify-center">
                       <div
-                        class="flex cursor-text items-center justify-center active:ring-gray-500"
+                        class="flex cursor-text items-center justify-center active:ring-neutral-500"
                       >
                         Quantity: 1
                       </div>
@@ -468,12 +412,12 @@
                       />
                     </svg>
                   </div>
-                  <p class="text-sm text-gray-400">Size: XL</p>
-                  <p class="py-3 text-xl font-bold text-violet-900">$320</p>
+                  <p class="text-sm text-neutral-400">Size: XL</p>
+                  <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
                   <div class="mt-2 flex w-full items-center justify-between">
                     <div class="flex items-center justify-center">
                       <div
-                        class="flex cursor-text items-center justify-center active:ring-gray-500"
+                        class="flex cursor-text items-center justify-center active:ring-neutral-500"
                       >
                         Quantity: 1
                       </div>
@@ -508,7 +452,7 @@
                       />
                       <div class="ml-3 flex flex-col justify-center">
                         <p class="text-xl font-bold">ITALIAN BED</p>
-                        <p class="text-sm text-gray-400">Size: XL</p>
+                        <p class="text-sm text-neutral-400">Size: XL</p>
                       </div>
                     </div>
                   </td>
@@ -529,7 +473,7 @@
                       />
                       <div class="ml-3 flex flex-col justify-center">
                         <p class="text-xl font-bold">GUYER CHAIR</p>
-                        <p class="text-sm text-gray-400">Size: XL</p>
+                        <p class="text-sm text-neutral-400">Size: XL</p>
                       </div>
                     </div>
                   </td>
@@ -550,7 +494,7 @@
                       />
                       <div class="ml-3 flex flex-col justify-center">
                         <p class="text-xl font-bold">OUTDOOR CHAIR</p>
-                        <p class="text-sm text-gray-400">Size: XL</p>
+                        <p class="text-sm text-neutral-400">Size: XL</p>
                       </div>
                     </div>
                   </td>
@@ -571,7 +515,7 @@
                       />
                       <div class="ml-3 flex flex-col justify-center">
                         <p class="text-xl font-bold">MATRASS COMFORT &plus;</p>
-                        <p class="text-sm text-gray-400">Size: XL</p>
+                        <p class="text-sm text-neutral-400">Size: XL</p>
                       </div>
                     </div>
                   </td>
@@ -586,7 +530,7 @@
             <div class="flex w-full items-center justify-between">
               <a
                 href="catalog.html"
-                class="hidden text-sm text-violet-900 lg:block"
+                class="hidden text-sm text-neutral-900 lg:block"
                 >&larr; Back to the shop</a
               >
 
@@ -599,7 +543,7 @@
 
                 <a
                   href="checkout-confirmation.html"
-                  class="bg-amber-400 px-4 py-2"
+                  class="bg-cyan-500 px-4 py-2"
                   >Place Order</a
                 >
               </div>
@@ -643,7 +587,7 @@
           <!-- 1 -->
 
           <div
-            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+            class="mx-5 flex flex-row items-center justify-center border-2 border-cyan-500 py-4 px-5"
           >
             <div class="">
               <svg
@@ -652,7 +596,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-6 w-6 text-violet-900 lg:mr-2"
+                class="h-6 w-6 text-neutral-900 lg:mr-2"
               >
                 <path
                   stroke-linecap="round"
@@ -675,7 +619,7 @@
           <!-- 2 -->
 
           <div
-            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+            class="mx-5 flex flex-row items-center justify-center border-2 border-cyan-500 py-4 px-5"
           >
             <div class="">
               <svg
@@ -684,7 +628,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-6 w-6 text-violet-900 lg:mr-2"
+                class="h-6 w-6 text-neutral-900 lg:mr-2"
               >
                 <path
                   stroke-linecap="round"
@@ -707,7 +651,7 @@
           <!-- 3 -->
 
           <div
-            class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
+            class="mx-5 flex flex-row items-center justify-center border-2 border-cyan-500 py-4 px-5"
           >
             <div class="">
               <svg
@@ -716,7 +660,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="h-6 w-6 text-violet-900 lg:mr-2"
+                class="h-6 w-6 text-neutral-900 lg:mr-2"
               >
                 <path
                   stroke-linecap="round"
@@ -745,7 +689,7 @@
         class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
       >
         <div class="ml-5">
-          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+          <p class="mt-10 mb-5 text-xl font-bold text-neutral-900">Alopez <span class="text-cyan-600">Multiservices LLC</span></p>
           <p class="pl-0">
             Lorem ipsum dolor sit amet consectetur <br />
             adipisicing elit.
@@ -777,7 +721,7 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">FEATURES</p>
+            <p class="font-medium text-neutral-500">FEATURES</p>
             <ul class="text-sm leading-8">
               <li><a href="#">Marketing</a></li>
               <li><a href="#">Commerce</a></li>
@@ -787,7 +731,7 @@
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">SUPPORT</p>
+            <p class="font-medium text-neutral-500">SUPPORT</p>
             <ul class="text-sm leading-8">
               <li><a href="#">Pricing</a></li>
               <li><a href="#">Docs</a></li>
@@ -797,7 +741,7 @@
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">DOCUMENTS</p>
+            <p class="font-medium text-neutral-500">DOCUMENTS</p>
             <ul class="text-sm leading-8">
               <li><a href="#">Terms</a></li>
               <li><a href="#">Conditions</a></li>
@@ -807,7 +751,7 @@
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500">DELIVERY</p>
+            <p class="font-medium text-neutral-500">DELIVERY</p>
             <ul class="text-sm leading-8">
               <li><a href="#">List of countries</a></li>
               <li><a href="#">Special information</a></li>
