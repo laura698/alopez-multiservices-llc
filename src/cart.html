@@ -42,21 +42,16 @@
           <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
         </div>
 
-        <form class="hidden h-10 w-48 items-center rounded-full bg-white pr-1 pl-4 lg:flex xl:w-64">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-neutral-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-          <input class="w-full bg-transparent px-2 text-sm text-neutral-900 outline-none" type="search" placeholder="Search" data-i18n-placeholder="Search" />
-          <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-white hover:bg-cyan-500">
-            <span data-i18n="Search" class="sr-only">Search</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-          </button>
-        </form>
 
         <!-- Language Selector + CTA + Mobile Hamburger -->
         <div class="flex items-center gap-2">
+          <a href="cart.html" class="relative flex items-center justify-center h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572l-.003.017h-.003A3 3 0 007.5 14.25zm0 0H18M18 14.25a3 3 0 105.98.572M18 14.25H7.5m0 0l-1.394-5.228m0 0h13.588a.75.75 0 01.727.943l-1.527 5.735a.75.75 0 01-.727.557H7.5" />
+            </svg>
+            <span class="cart-badge absolute -top-1.5 -right-1.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-cyan-400 text-[10px] font-bold text-neutral-900" style="display:none">0</span>
+          </a>
+
           <div class="relative flex-shrink-0" id="lang-dropdown-container">
             <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
               <span id="lang-flag"></span>
@@ -94,34 +89,6 @@
       style="display: none"
     >
       <div class="mx-auto">
-                <form class="my-4 mx-5 flex h-9 items-center border">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="mx-3 h-4 w-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
-          </svg>
-
-          <input
-            class="hidden w-11/12 outline-none md:block"
-            type="search"
-            placeholder="Search"
-            data-i18n-placeholder="Search"
-          />
-
-          <button
-            type="submit"
-            class="ml-auto h-full bg-cyan-500 px-4 hover:bg-cyan-400"
-          ><span data-i18n="Search">Search</span></button>
-        </form>
         <ul class="text-center font-medium">
           <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
           <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
@@ -244,608 +211,226 @@
               <span class="mx-2 text-neutral-500">&gt;</span>
             </li>
 
-            <li class="text-neutral-500">Cart</li>
+            <li class="text-neutral-500" data-i18n="Cart">Cart</li>
           </ul>
         </nav>
         <!-- /breadcrumbs  -->
       </div>
 
-      <section
-        class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10"
-      >
-        <!-- Mobile cart table  -->
-        <section
-          class="container mx-auto my-3 flex w-full flex-col gap-3 px-4 md:hidden"
-        >
-          <!-- 1 -->
+      <!-- Empty cart message -->
+      <div id="cart-empty" class="mx-auto hidden max-w-[1200px] flex-col items-center justify-center px-5 py-20">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="mb-6 h-20 w-20 text-neutral-300"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572l-.003.017h-.003A3 3 0 007.5 14.25zm0 0H18M18 14.25a3 3 0 105.98.572M18 14.25H7.5m0 0l-1.394-5.228m0 0h13.588a.75.75 0 01.727.943l-1.527 5.735a.75.75 0 01-.727.557H7.5"/></svg>
+        <p class="mb-2 text-xl font-bold text-neutral-400" data-i18n="Your cart is empty">Your cart is empty</p>
+        <p class="mb-6 text-sm text-neutral-400" data-i18n="Browse our catalog and add products">Browse our catalog and add products</p>
+        <a href="catalog.html" class="rounded-full bg-cyan-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cyan-500" data-i18n="Go to Catalog">Go to Catalog</a>
+      </div>
 
-          <div class="flex w-full border px-4 py-4">
-            <img
-              class="self-start object-contain"
-              width="90px"
-              src="./assets/images/bedroom.png"
-              alt="bedroom image"
-            />
-            <div class="ml-3 flex w-full flex-col justify-center">
-              <div class="flex items-center justify-between">
-                <p class="text-xl font-bold">ITALIAN BED</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"
-                  />
-                </svg>
-              </div>
-              <p class="text-sm text-neutral-400">Size: XL</p>
-              <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
-              <div class="mt-2 flex w-full items-center justify-between">
-                <div class="flex items-center justify-center">
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &minus;
-                  </button>
-                  <div
-                    class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                  >
-                    1
-                  </div>
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &#43;
-                  </button>
-                </div>
+      <section id="cart-content" class="mx-auto hidden max-w-[1200px] gap-8 px-5 py-5 lg:flex lg:flex-row lg:py-10">
+        <div class="flex-1">
+          <!-- Mobile cart -->
+          <section id="cart-mobile" class="flex w-full flex-col gap-3 md:hidden"></section>
 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="m-0 h-5 w-5 cursor-pointer"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
+          <!-- Desktop cart -->
+          <section id="cart-desktop" class="hidden md:block">
+            <div class="overflow-hidden rounded-2xl bg-white ring-1 ring-neutral-200">
+              <table class="w-full table-fixed">
+                <thead class="h-14 bg-neutral-50 text-left text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                  <tr>
+                    <th class="pl-5" data-i18n="ITEM">Item</th>
+                    <th class="text-center" data-i18n="PRICE">Price</th>
+                    <th class="text-center" data-i18n="QUANTITY">Quantity</th>
+                    <th class="text-center" data-i18n="TOTAL">Total</th>
+                    <th class="pr-5"></th>
+                  </tr>
+                </thead>
+                <tbody id="cart-tbody" class="divide-y divide-neutral-100"></tbody>
+              </table>
             </div>
-          </div>
+          </section>
+        </div>
 
-          <!-- 2 -->
-
-          <div class="flex w-full border px-4 py-4">
-            <img
-              class="self-start object-contain"
-              width="90px"
-              src="./assets/images/product-chair.png"
-              alt="Chair image"
-            />
-            <div class="ml-3 flex w-full flex-col justify-center">
-              <div class="flex items-center justify-between">
-                <p class="text-xl font-bold">GUYER CHAIR</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"
-                  />
-                </svg>
-              </div>
-              <p class="text-sm text-neutral-400">Size: XL</p>
-              <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
-              <div class="mt-2 flex w-full items-center justify-between">
-                <div class="flex items-center justify-center">
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &minus;
-                  </button>
-                  <div
-                    class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                  >
-                    1
-                  </div>
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &#43;
-                  </button>
-                </div>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="m-0 h-5 w-5 cursor-pointer"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
+        <!-- Summary -->
+        <section id="cart-summary" class="mt-8 w-full lg:mt-0 lg:w-[380px] lg:shrink-0">
+          <div class="rounded-2xl bg-white p-6 ring-1 ring-neutral-200 shadow-sm">
+            <p class="font-bold text-neutral-900" data-i18n="ORDER SUMMARY">Order Summary</p>
+            <div class="flex justify-between border-b border-neutral-100 py-4">
+              <p class="text-neutral-600" data-i18n="Subtotal">Subtotal</p>
+              <p id="cart-subtotal" class="font-medium text-neutral-900">$0</p>
             </div>
-          </div>
-
-          <!-- 3 -->
-
-          <div class="flex w-full border px-4 py-4">
-            <img
-              class="self-start object-contain"
-              width="90px"
-              src="./assets/images/outdoors.png"
-              alt="Outdoor chair image"
-            />
-            <div class="ml-3 flex w-full flex-col justify-center">
-              <div class="flex items-center justify-between">
-                <p class="text-xl font-bold">OUTDOOR CHAIR</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"
-                  />
-                </svg>
-              </div>
-              <p class="text-sm text-neutral-400">Size: XL</p>
-              <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
-              <div class="mt-2 flex w-full items-center justify-between">
-                <div class="flex items-center justify-center">
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &minus;
-                  </button>
-                  <div
-                    class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                  >
-                    1
-                  </div>
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &#43;
-                  </button>
-                </div>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="m-0 h-5 w-5 cursor-pointer"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
+            <div class="flex justify-between border-b border-neutral-100 py-4">
+              <p class="text-neutral-600" data-i18n="Shipping">Shipping</p>
+              <p class="font-medium text-cyan-600" data-i18n="Free">Free</p>
             </div>
-          </div>
-
-          <!-- 4 -->
-
-          <div class="flex w-full border px-4 py-4">
-            <img
-              class="self-start object-contain"
-              width="90px"
-              src="./assets/images/matrass.png"
-              alt="Matrass image"
-            />
-            <div class="ml-3 flex w-full flex-col justify-center">
-              <div class="flex items-center justify-between">
-                <p class="text-xl font-bold">MATRASS COMFORT &plus;</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                >
-                  <path
-                    d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z"
-                  />
-                </svg>
-              </div>
-              <p class="text-sm text-neutral-400">Size: XL</p>
-              <p class="py-3 text-xl font-bold text-neutral-900">$320</p>
-              <div class="mt-2 flex w-full items-center justify-between">
-                <div class="flex items-center justify-center">
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &minus;
-                  </button>
-                  <div
-                    class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                  >
-                    1
-                  </div>
-                  <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                  >
-                    &#43;
-                  </button>
-                </div>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="m-0 h-5 w-5 cursor-pointer"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
+            <div class="flex justify-between py-4">
+              <p class="font-bold text-neutral-900" data-i18n="Total">Total</p>
+              <p id="cart-total" class="font-bold text-neutral-900">$0</p>
             </div>
-          </div>
-        </section>
-        <!-- /Mobile cart table  -->
-
-        <!-- Desktop cart table  -->
-        <section
-          class="hidden h-[600px] w-full max-w-[1200px] grid-cols-1 gap-3 px-5 pb-10 md:grid"
-        >
-          <table class="table-fixed">
-            <thead class="h-16 bg-neutral-100">
-              <tr>
-                <th>ITEM</th>
-                <th>PRICE</th>
-                <th>QUANTITY</th>
-                <th>TOTAL</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 1 -->
-
-              <tr class="h-[100px] border-b">
-                <td class="align-middle">
-                  <div class="flex">
-                    <img
-                      class="w-[90px]"
-                      src="./assets/images/bedroom.png"
-                      alt="bedroom image"
-                    />
-                    <div class="ml-3 flex flex-col justify-center">
-                      <p class="text-xl font-bold">ITALIAN BED</p>
-                      <p class="text-sm text-neutral-400">Size: XL</p>
-                    </div>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <div class="flex items-center justify-center">
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &minus;
-                    </button>
-                    <div
-                      class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                    >
-                      1
-                    </div>
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &#43;
-                    </button>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="m-0 h-5 w-5 cursor-pointer"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </td>
-              </tr>
-
-              <!-- 2 -->
-
-              <tr class="h-[100px] border-b">
-                <td class="align-middle">
-                  <div class="flex">
-                    <img
-                      class="w-[90px]"
-                      src="./assets/images/product-chair.png"
-                      alt="Chair Image"
-                    />
-                    <div class="ml-3 flex flex-col justify-center">
-                      <p class="text-xl font-bold">GUYER CHAIR</p>
-                      <p class="text-sm text-neutral-400">Size: XL</p>
-                    </div>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <div class="flex items-center justify-center">
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &minus;
-                    </button>
-                    <div
-                      class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                    >
-                      1
-                    </div>
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &#43;
-                    </button>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="m-0 h-5 w-5 cursor-pointer"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </td>
-              </tr>
-
-              <!-- 3 -->
-
-              <tr class="h-[100px] border-b">
-                <td class="align-middle">
-                  <div class="flex">
-                    <img
-                      class="w-[90px]"
-                      src="./assets/images/outdoors.png"
-                      alt="Outdoor furniture"
-                    />
-                    <div class="ml-3 flex flex-col justify-center">
-                      <p class="text-xl font-bold">OUTDOOR CHAIR</p>
-                      <p class="text-sm text-neutral-400">Size: XL</p>
-                    </div>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <div class="flex items-center justify-center">
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &minus;
-                    </button>
-                    <div
-                      class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                    >
-                      1
-                    </div>
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &#43;
-                    </button>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="m-0 h-5 w-5 cursor-pointer"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </td>
-              </tr>
-
-              <!-- 4 -->
-
-              <tr class="h-[100px]">
-                <td class="align-middle">
-                  <div class="flex">
-                    <img
-                      class="w-[90px]"
-                      src="./assets/images/matrass.png"
-                      alt="Matrass Image"
-                    />
-                    <div class="ml-3 flex flex-col justify-center">
-                      <p class="text-xl font-bold">MATRASS COMFORT &plus;</p>
-                      <p class="text-sm text-neutral-400">Size: XL</p>
-                    </div>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <div class="flex items-center justify-center">
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &minus;
-                    </button>
-                    <div
-                      class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-neutral-500"
-                    >
-                      1
-                    </div>
-                    <button
-                      class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 active:ring-2 active:ring-neutral-500"
-                    >
-                      &#43;
-                    </button>
-                  </div>
-                </td>
-                <td class="mx-auto text-center">&#36;320</td>
-                <td class="align-middle">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="m-0 h-5 w-5 cursor-pointer"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <!-- /Desktop cart table  -->
-
-        <!-- Summary  -->
-
-        <section class="mx-auto w-full px-4 md:max-w-[400px]">
-          <div class="">
-            <div class="border py-5 px-4 shadow-md">
-              <p class="font-bold">ORDER SUMMARY</p>
-
-              <div class="flex justify-between border-b py-5">
-                <p>Subtotal</p>
-                <p>$1280</p>
-              </div>
-
-              <div class="flex justify-between border-b py-5">
-                <p>Shipping</p>
-                <p>Free</p>
-              </div>
-
-              <div class="flex justify-between py-5">
-                <p>Total</p>
-                <p>$1280</p>
-              </div>
-
-              <a href="checkout-address.html">
-                <button class="w-full bg-neutral-900 px-5 py-2 text-white">
-                  Proceed to checkout
-                </button>
-              </a>
-            </div>
+            <a id="cart-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer" class="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-cyan-600 text-sm font-semibold text-white transition-colors hover:bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="Order via WhatsApp">Order via WhatsApp</span>
+            </a>
+            <button id="cart-clear-btn" class="mt-3 flex h-11 w-full items-center justify-center rounded-full border border-neutral-300 text-sm text-neutral-600 transition-colors hover:bg-neutral-50" data-i18n="Clear Cart">Clear Cart</button>
           </div>
         </section>
       </section>
 
-      <!-- /Summary -->
-
       <!-- Desktop Footer  -->
 
-      <footer
-        class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
-      >
+      <div class="w-full bg-neutral-900">
+      <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
         <div class="ml-5">
-          <p class="mt-10 mb-5 text-xl font-bold text-neutral-900">Alopez <span class="text-cyan-600">Multiservices LLC</span></p>
-          <p class="pl-0">
-            Lorem ipsum dolor sit amet consectetur <br />
-            adipisicing elit.
+          <p class="mt-10 mb-5 text-xl font-bold text-neutral-300">Alopez <span class="text-cyan-600">Multiservices LLC</span></p>
+          <p class="pl-0 text-sm text-neutral-400">
+            <span data-i18n="Your trusted source for home appliances and electronics in Miami Gardens, FL.">Your trusted source for home appliances and electronics in Miami Gardens, FL.</span>
           </p>
           <div class="mt-10 flex gap-3">
-            <a href="https://github.com/bbulakh">
-              <img
-                class="h-5 w-5 cursor-pointer"
-                src="./assets/images/github.svg"
-                alt="github icon"
-              />
+            <a href="#">
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/github.svg" alt="facebook icon" />
             </a>
-            <a href="https://t.me/b_bulakh">
-              <img
-                class="h-5 w-5 cursor-pointer"
-                src="./assets/images/telegram.svg"
-                alt="telegram icon"
-              />
+            <a href="#">
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/telegram.svg" alt="instagram icon" />
             </a>
-            <a href="https://www.linkedin.com/in/bogdan-bulakh-393284190/">
-              <img
-                class="h-5 w-5 cursor-pointer"
-                src="./assets/images/linkedin.svg"
-                alt="twitter icon"
-              />
+            <a href="#">
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/linkedin.svg" alt="linkedin icon" />
             </a>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div class="mx-5 mt-10">
-            <p class="font-medium text-neutral-500">FEATURES</p>
-            <ul class="text-sm leading-8">
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Commerce</a></li>
-              <li><a href="#">Analytics</a></li>
-              <li><a href="#">Merchendise</a></li>
+            <p class="font-medium text-neutral-400 uppercase tracking-wider text-xs" data-i18n="SHOP">SHOP</p>
+            <ul class="text-sm leading-8 text-neutral-300">
+              <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Washing Machines">Washing Machines</a></li>
+              <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Refrigerators">Refrigerators</a></li>
+              <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Air Conditioners">Air Conditioners</a></li>
+              <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Televisions">Televisions</a></li>
+              <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Kitchen Appliances">Kitchen Appliances</a></li>
+              <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Small Appliances">Small Appliances</a></li>
+              <li><a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Auto Parts">Auto Parts</a></li>
+              <li><a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Food & Groceries">Food &amp; Groceries</a></li>
             </ul>
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-neutral-500">SUPPORT</p>
-            <ul class="text-sm leading-8">
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Docs</a></li>
-              <li><a href="#">Audition</a></li>
-              <li><a href="#">Art Status</a></li>
+            <p class="font-medium text-neutral-400 uppercase tracking-wider text-xs" data-i18n="CUSTOMER SERVICE">CUSTOMER SERVICE</p>
+            <ul class="text-sm leading-8 text-neutral-300">
+              <li><a href="#" data-i18n="Warranty">Warranty</a></li>
+              <li><a href="#" data-i18n="Returns Policy">Returns Policy</a></li>
+              <li><a href="#" data-i18n="Shipping Info">Shipping Info</a></li>
+              <li><a href="#" data-i18n="FAQ">FAQ</a></li>
             </ul>
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-neutral-500">DOCUMENTS</p>
-            <ul class="text-sm leading-8">
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Conditions</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">License</a></li>
-            </ul>
-          </div>
-
-          <div class="mx-5 mt-10">
-            <p class="font-medium text-neutral-500">DELIVERY</p>
-            <ul class="text-sm leading-8">
-              <li><a href="#">List of countries</a></li>
-              <li><a href="#">Special information</a></li>
-              <li><a href="#">Restrictions</a></li>
-              <li><a href="#">Payment</a></li>
+            <p class="font-medium text-neutral-400 uppercase tracking-wider text-xs" data-i18n="CONTACT">CONTACT</p>
+            <ul class="text-sm leading-8 text-neutral-300">
+              <li><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+              <li><a href="mailto:alopezmultiservices@gmail.com" class="break-all">alopezmultiservices@gmail.com</a></li>
+              <li><a href="tel:+17864009803">(786) 400-9803</a></li>
+              <li class="text-neutral-400">18603 NW 45th Ave, Miami Gardens, FL 33055</li>
             </ul>
           </div>
         </div>
       </footer>
+      </div>
       <!-- /Desktop Footer  -->
 
-
+    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
+
+    <script type="module">
+      import { IMAGES } from './assets/js/image-map.js';
+      (function () {
+        const fmt = n => '$' + Number(n).toLocaleString('en-US');
+        const trashSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 cursor-pointer text-neutral-400 hover:text-red-500 transition-colors"><path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clip-rule="evenodd"/></svg>';
+
+        function imgSrc(name) {
+          return IMAGES[name] || IMAGES['cat-washing-machines.jpg'] || '';
+        }
+
+        function render() {
+          const cart = window.AlopezCart.getAll();
+          const emptyEl   = document.getElementById('cart-empty');
+          const contentEl = document.getElementById('cart-content');
+          const mobileEl  = document.getElementById('cart-mobile');
+          const tbodyEl   = document.getElementById('cart-tbody');
+          const subtotalEl = document.getElementById('cart-subtotal');
+          const totalEl    = document.getElementById('cart-total');
+          const waBtn      = document.getElementById('cart-whatsapp-btn');
+
+          if (!cart.length) {
+            emptyEl.classList.remove('hidden'); emptyEl.classList.add('flex');
+            contentEl.classList.add('hidden'); contentEl.classList.remove('lg:flex');
+            return;
+          }
+
+          emptyEl.classList.add('hidden'); emptyEl.classList.remove('flex');
+          contentEl.classList.remove('hidden'); contentEl.classList.add('lg:flex');
+
+          mobileEl.innerHTML = cart.map((item, i) => `
+            <div class="flex w-full gap-3 rounded-2xl bg-white p-4 ring-1 ring-neutral-200">
+              <img class="h-20 w-20 shrink-0 self-start rounded-xl bg-neutral-50 object-contain" src="${imgSrc(item.img)}" alt="${item.name}">
+              <div class="flex w-full flex-col justify-center">
+                <p class="text-sm font-semibold text-neutral-900">${item.name}</p>
+                ${item.brand ? `<p class="text-xs text-neutral-400">${item.brand}</p>` : ''}
+                <p class="py-1 font-bold text-neutral-900">${fmt(item.price)}</p>
+                <div class="mt-1 flex w-full items-center justify-between">
+                  <div class="flex items-center">
+                    <button onclick="window.AlopezCart.updateQty(${i},${item.qty - 1});render()" class="flex h-8 w-8 items-center justify-center rounded-l-full border border-neutral-200 hover:bg-neutral-50">&minus;</button>
+                    <div class="flex h-8 w-9 items-center justify-center border-t border-b border-neutral-200">${item.qty}</div>
+                    <button onclick="window.AlopezCart.updateQty(${i},${item.qty + 1});render()" class="flex h-8 w-8 items-center justify-center rounded-r-full border border-neutral-200 hover:bg-neutral-50">&#43;</button>
+                  </div>
+                  <span onclick="window.AlopezCart.remove(${i});render()">${trashSVG}</span>
+                </div>
+              </div>
+            </div>`).join('');
+
+          tbodyEl.innerHTML = cart.map((item, i) => `
+            <tr>
+              <td class="py-4 pl-5 align-middle">
+                <div class="flex items-center gap-3">
+                  <img class="h-16 w-16 shrink-0 rounded-xl bg-neutral-50 object-contain" src="${imgSrc(item.img)}" alt="${item.name}">
+                  <div>
+                    <p class="font-semibold text-neutral-900">${item.name}</p>
+                    ${item.brand ? `<p class="text-sm text-neutral-400">${item.brand}</p>` : ''}
+                  </div>
+                </div>
+              </td>
+              <td class="text-center align-middle">${fmt(item.price)}</td>
+              <td class="text-center align-middle">
+                <div class="flex items-center justify-center">
+                  <button onclick="window.AlopezCart.updateQty(${i},${item.qty - 1});render()" class="flex h-8 w-8 items-center justify-center rounded-l-full border border-neutral-200 hover:bg-neutral-50">&minus;</button>
+                  <div class="flex h-8 w-9 items-center justify-center border-t border-b border-neutral-200">${item.qty}</div>
+                  <button onclick="window.AlopezCart.updateQty(${i},${item.qty + 1});render()" class="flex h-8 w-8 items-center justify-center rounded-r-full border border-neutral-200 hover:bg-neutral-50">&#43;</button>
+                </div>
+              </td>
+              <td class="text-center align-middle font-semibold text-neutral-900">${fmt(item.price * item.qty)}</td>
+              <td class="pr-5 text-center align-middle"><span onclick="window.AlopezCart.remove(${i});render()" class="inline-block">${trashSVG}</span></td>
+            </tr>`).join('');
+
+          const total = window.AlopezCart.total();
+          subtotalEl.textContent = fmt(total);
+          totalEl.textContent = fmt(total);
+
+          let msg = 'Hello! I would like to order:%0A%0A';
+          cart.forEach(item => { msg += '- ' + item.name + ' x' + item.qty + ' = ' + fmt(item.price * item.qty) + '%0A'; });
+          msg += '%0ATotal: ' + fmt(total);
+          waBtn.href = 'https://wa.me/17864009803?text=' + msg;
+        }
+
+        window.render = render;
+
+        document.getElementById('cart-clear-btn').onclick = function () {
+          window.AlopezCart.clear();
+          render();
+        };
+
+        render();
+        window.addEventListener('storage', render);
+        window.addEventListener('cart-updated', render);
+      })();
+    </script>
   </body>
 </html>

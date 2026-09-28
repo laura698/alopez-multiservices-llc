@@ -44,21 +44,16 @@
           <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
         </div>
 
-        <form class="hidden h-10 w-48 items-center rounded-full bg-white pr-1 pl-4 lg:flex xl:w-64">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-neutral-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-          <input class="w-full bg-transparent px-2 text-sm text-neutral-900 outline-none" type="search" placeholder="Search" data-i18n-placeholder="Search" />
-          <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-white hover:bg-cyan-500">
-            <span data-i18n="Search" class="sr-only">Search</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-          </button>
-        </form>
 
         <!-- Language Selector + CTA + Mobile Hamburger -->
         <div class="flex items-center gap-2">
+          <a href="cart.html" class="relative flex items-center justify-center h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572l-.003.017h-.003A3 3 0 007.5 14.25zm0 0H18M18 14.25a3 3 0 105.98.572M18 14.25H7.5m0 0l-1.394-5.228m0 0h13.588a.75.75 0 01.727.943l-1.527 5.735a.75.75 0 01-.727.557H7.5" />
+            </svg>
+            <span class="cart-badge absolute -top-1.5 -right-1.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-cyan-400 text-[10px] font-bold text-neutral-900" style="display:none">0</span>
+          </a>
+
           <div class="relative flex-shrink-0" id="lang-dropdown-container">
             <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
               <span id="lang-flag"></span>
@@ -96,34 +91,6 @@
       style="display: none"
     >
       <div class="mx-auto">
-                <form class="my-4 mx-5 flex h-9 items-center border">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="mx-3 h-4 w-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
-          </svg>
-
-          <input
-            class="hidden w-11/12 outline-none md:block"
-            type="search"
-            placeholder="Search"
-            data-i18n-placeholder="Search"
-          />
-
-          <button
-            type="submit"
-            class="ml-auto h-full bg-cyan-500 px-4 hover:bg-cyan-400"
-          ><span data-i18n="Search">Search</span></button>
-        </form>
         <ul class="text-center font-medium">
           <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
           <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
@@ -366,6 +333,8 @@
               <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Televisions">Televisions</a></li>
               <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Kitchen Appliances">Kitchen Appliances</a></li>
               <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Small Appliances">Small Appliances</a></li>
+              <li><a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Auto Parts">Auto Parts</a></li>
+              <li><a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Food & Groceries">Food &amp; Groceries</a></li>
             </ul>
           </div>
 
@@ -395,6 +364,7 @@
     <!-- /Desktop Footer  -->
 
 
+    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>

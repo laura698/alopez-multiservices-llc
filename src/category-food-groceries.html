@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#171717" />
+    <meta name="msapplication-TileColor" content="#171717" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Food & Groceries | Alopez Multiservices LLC</title>
+  </head>
+
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false }">
+    <main class="flex flex-col h-screen justify-between">
+
+      <!-- Header -->
+      <div>
+        <header class="relative bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-700">
+          <div class="mx-auto flex h-20 max-w-[1200px] items-center justify-between gap-4 px-5">
+            <a href="index.html" class="min-w-0">
+              <span class="text-lg font-bold text-white sm:text-xl">Alopez <span class="text-cyan-200">Multiservices LLC</span></span>
+            </a>
+
+            <div class="hidden items-center gap-6 md:flex">
+              <button
+                @click="desktopMenuOpen = ! desktopMenuOpen"
+                class="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium whitespace-nowrap text-white duration-100 hover:bg-white/20"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <span data-i18n="All categories">All categories</span>
+              </button>
+
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="index.html" data-i18n="Home">Home</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="catalog.html" data-i18n="Catalog">Catalog</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="about-us.html" data-i18n="About Us">About Us</a>
+              <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a href="cart.html" class="relative flex items-center justify-center h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572l-.003.017h-.003A3 3 0 007.5 14.25zm0 0H18M18 14.25a3 3 0 105.98.572M18 14.25H7.5m0 0l-1.394-5.228m0 0h13.588a.75.75 0 01.727.943l-1.527 5.735a.75.75 0 01-.727.557H7.5" />
+                </svg>
+                <span class="cart-badge absolute -top-1.5 -right-1.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-cyan-400 text-[10px] font-bold text-neutral-900" style="display:none">0</span>
+              </a>
+
+              <div class="relative flex-shrink-0" id="lang-dropdown-container">
+                <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
+                  <span id="lang-flag"></span>
+                  <span id="lang-label">EN</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-neutral-200 rounded shadow-lg z-50 overflow-hidden">
+                  <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="en">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+                  </button>
+                  <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-neutral-50 transition-colors" data-lang="es">
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+                  </button>
+                </div>
+              </div>
+
+              <button class="text-white md:hidden" @click="mobileMenuOpen = ! mobileMenuOpen">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Burger menu (mobile) -->
+        <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
+          class="absolute left-0 right-0 z-50 h-screen w-full bg-white" style="display: none">
+          <div class="mx-auto">
+            <ul class="text-center font-medium">
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- All categories dropdown -->
+        <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
+          class="absolute left-0 right-0 z-30 w-full border-b border-r border-l bg-white" style="display: none">
+          <div class="mx-auto flex max-w-[1200px] py-10">
+            <div class="w-[300px] border-r">
+              <div class="px-5">
+
+            <a href="category-washing-machines.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
+              Washing Machines
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-refrigerators.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
+              Refrigerators
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-air-conditioners.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
+              Air Conditioners
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-televisions.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
+              Televisions
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-kitchen-appliances.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
+              Kitchen Appliances
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-small-appliances.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
+              Small Appliances
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-auto-parts.html" class="flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/car.svg" alt="Auto Parts icon" />
+              Auto Parts
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+
+            <a href="category-food-groceries.html" class="flex items-center gap-2 bg-cyan-500 py-2 px-3 active:bg-cyan-500">
+              <img width="15px" height="15px" src="./assets/images/grocery-bag.svg" alt="Food & Groceries icon" />
+              Food &amp; Groceries
+              <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+            </a>
+              </div>
+            </div>
+
+            <div class="flex w-full justify-between">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
+                    <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
+                    <li><a href="category-washing-machines.html">Whirlpool HE Washer</a></li>
+                    <li><a href="category-washing-machines.html">Bosch Series 8</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-refrigerators.html">Samsung French Door</a></li>
+                    <li><a href="category-refrigerators.html">LG InstaView</a></li>
+                    <li><a href="category-refrigerators.html">Whirlpool 4-Door</a></li>
+                    <li><a href="category-refrigerators.html">Bosch Side-by-Side</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
+                    <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
+                    <li><a href="category-air-conditioners.html">LG Dual Cool</a></li>
+                    <li><a href="category-air-conditioners.html">Carrier Xpower</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">TELEVISIONS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-televisions.html">Samsung QLED 4K</a></li>
+                    <li><a href="category-televisions.html">LG OLED C3</a></li>
+                    <li><a href="category-televisions.html">Sony Bravia XR</a></li>
+                    <li><a href="category-televisions.html">TCL 6-Series</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">AUTO PARTS</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-auto-parts.html">Bateria DieHard Gold</a></li>
+                    <li><a href="category-auto-parts.html">Filtro de Aceite Mobil 1</a></li>
+                    <li><a href="category-auto-parts.html">Pastillas de Freno Bosch</a></li>
+                    <li><a href="category-auto-parts.html">Aceite Motor Mobil 1</a></li>
+                  </ul>
+                </div>
+                <div class="mx-5">
+                  <p class="font-medium text-neutral-500">FOOD &amp; GROCERIES</p>
+                  <ul class="text-sm leading-8">
+                    <li><a href="category-food-groceries.html">Arroz Jasmine 5lb</a></li>
+                    <li><a href="category-food-groceries.html">Aceite de Oliva Extra Virgen</a></li>
+                    <li><a href="category-food-groceries.html">Cafe Bustelo Espresso</a></li>
+                    <li><a href="category-food-groceries.html">Frijoles Negros Goya</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Breadcrumbs -->
+        <div class="mx-auto w-full max-w-[1200px] px-5 py-3">
+          <nav>
+            <ul class="flex items-center text-sm">
+              <li>
+                <a href="index.html" class="text-neutral-500 hover:text-neutral-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
+                  </svg>
+                </a>
+              </li>
+              <li><span class="mx-2 text-neutral-500">&gt;</span></li>
+              <li class="text-neutral-500">Food &amp; Groceries</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <section class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
+
+        <!-- Sidebar -->
+        <section class="hidden w-[300px] flex-shrink-0 px-4 lg:block">
+          <div class="flex border-b pb-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium" data-i18n="CATEGORIES">CATEGORIES</p>
+
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Pantry Staples</p>
+                </div>
+                <div><p class="text-neutral-500">(3)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Canned Goods</p>
+                </div>
+                <div><p class="text-neutral-500">(3)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Beverages</p>
+                </div>
+                <div><p class="text-neutral-500">(1)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Baking Essentials</p>
+                </div>
+                <div><p class="text-neutral-500">(3)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex border-b py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">BRANDS</p>
+
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Goya</p>
+                </div>
+                <div><p class="text-neutral-500">(1)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Barilla</p>
+                </div>
+                <div><p class="text-neutral-500">(1)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Bustelo</p>
+                </div>
+                <div><p class="text-neutral-500">(1)</p></div>
+              </div>
+              <div class="flex w-full justify-between">
+                <div class="flex justify-center items-center">
+                  <input type="checkbox" />
+                  <p class="ml-4">Domino</p>
+                </div>
+                <div><p class="text-neutral-500">(1)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex border-b py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">PRICE</p>
+              <div class="flex w-full">
+                <div class="flex justify-between">
+                  <input min="50" type="number" class="h-8 w-[90px] border pl-2" placeholder="50" />
+                  <span class="px-3">-</span>
+                  <input type="number" max="999999" class="h-8 w-[90px] border pl-2" placeholder="99999" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex py-5">
+            <div class="w-full">
+              <p class="mb-3 font-medium">RATING</p>
+              <div class="flex flex-col gap-2">
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="rating" /> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products -->
+        <div class="flex-grow">
+          <div class="mb-5 flex items-center justify-between px-5">
+            <div class="flex gap-3">
+              <button class="flex items-center justify-center border px-6 py-2"><span data-i18n="Sort by">Sort by</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </button>
+              <button class="flex items-center justify-center border px-6 py-2 md:hidden"><span data-i18n="Filters">Filters</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </button>
+            </div>
+            <div class="hidden gap-3 lg:flex">
+              <button class="border bg-cyan-500 py-2 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/>
+                </svg>
+              </button>
+              <button class="border py-2 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <section class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-3">
+            <!-- PRODUCTOS:START -->
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;25%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-1.jpg" alt="Arroz Jasmine 5lb" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Arroz Jasmine 5lb</p>
+                <p class="mt-1 font-medium text-neutral-900">$8.99 <span class="text-sm text-neutral-500 line-through">$11.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(89)</span></div>
+                <a href="product-detail.html#n=Arroz+Jasmine+5lb&p=8.99&po=11.99&img=food-1.jpg&b=Royal&m=Jasmine+5lb&d=Arroz+jasmine+premium%2C+grano+largo&r=4.6&rv=89&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;19%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-2.jpg" alt="Aceite de Oliva Extra Virgen 1L" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Aceite de Oliva Extra Virgen 1L</p>
+                <p class="mt-1 font-medium text-neutral-900">$12.99 <span class="text-sm text-neutral-500 line-through">$15.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(145)</span></div>
+                <a href="product-detail.html#n=Aceite+de+Oliva+Extra+Virgen+1L&p=12.99&po=15.99&img=food-2.jpg&b=Bertolli&m=Extra+Virgin+1L&d=Aceite+de+oliva+extra+virgen%2C+primera+prensada+en+frio&r=4.8&rv=145&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;25%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-3.jpg" alt="Frijoles Negros Goya 6-pack" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Frijoles Negros Goya 6-pack</p>
+                <p class="mt-1 font-medium text-neutral-900">$7.49 <span class="text-sm text-neutral-500 line-through">$9.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(210)</span></div>
+                <a href="product-detail.html#n=Frijoles+Negros+Goya+6-pack&p=7.49&po=9.99&img=food-3.jpg&b=Goya&m=Black+Beans+15.5oz&d=Frijoles+negros+enlatados%2C+pack+de+6+latas&r=4.5&rv=210&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;20%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-4.jpg" alt="Cafe Bustelo Espresso 36oz" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Cafe Bustelo Espresso 36oz</p>
+                <p class="mt-1 font-medium text-neutral-900">$11.99 <span class="text-sm text-neutral-500 line-through">$14.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(320)</span></div>
+                <a href="product-detail.html#n=Cafe+Bustelo+Espresso+36oz&p=11.99&po=14.99&img=food-4.jpg&b=Bustelo&m=Espresso+36oz&d=Cafe+molido+espresso%2C+tostado+oscuro&r=4.9&rv=320&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;17%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-5.jpg" alt="Leche Evaporada Carnation 12-pack" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Leche Evaporada Carnation 12-pack</p>
+                <p class="mt-1 font-medium text-neutral-900">$18.99 <span class="text-sm text-neutral-500 line-through">$22.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(78)</span></div>
+                <a href="product-detail.html#n=Leche+Evaporada+Carnation+12-pack&p=18.99&po=22.99&img=food-5.jpg&b=Carnation&m=Evaporated+12oz&d=Leche+evaporada%2C+pack+de+12+latas&r=4.4&rv=78&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;22%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-6.jpg" alt="Salsa de Tomate Hunt's 8-pack" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Salsa de Tomate Hunt's 8-pack</p>
+                <p class="mt-1 font-medium text-neutral-900">$6.99 <span class="text-sm text-neutral-500 line-through">$8.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-300"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(156)</span></div>
+                <a href="product-detail.html#n=Salsa+de+Tomate+Hunt%27s+8-pack&p=6.99&po=8.99&img=food-6.jpg&b=Hunt%27s&m=Tomato+Sauce+8oz&d=Salsa+de+tomate+natural%2C+pack+de+8&r=4.3&rv=156&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;23%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-7.jpg" alt="Pasta Barilla Spaghetti 6-pack" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Pasta Barilla Spaghetti 6-pack</p>
+                <p class="mt-1 font-medium text-neutral-900">$8.49 <span class="text-sm text-neutral-500 line-through">$10.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(198)</span></div>
+                <a href="product-detail.html#n=Pasta+Barilla+Spaghetti+6-pack&p=8.49&po=10.99&img=food-7.jpg&b=Barilla&m=Spaghetti+16oz&d=Pasta+spaghetti%2C+pack+de+6+cajas&r=4.6&rv=198&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;21%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-8.jpg" alt="Atun StarKist Chunk Light 12-pack" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Atun StarKist Chunk Light 12-pack</p>
+                <p class="mt-1 font-medium text-neutral-900">$14.99 <span class="text-sm text-neutral-500 line-through">$18.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(167)</span></div>
+                <a href="product-detail.html#n=Atun+StarKist+Chunk+Light+12-pack&p=14.99&po=18.99&img=food-8.jpg&b=StarKist&m=Chunk+Light+5oz&d=Atun+en+agua%2C+pack+de+12+latas&r=4.5&rv=167&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;20%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-9.jpg" alt="Azucar Domino 10lb" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Azucar Domino 10lb</p>
+                <p class="mt-1 font-medium text-neutral-900">$7.99 <span class="text-sm text-neutral-500 line-through">$9.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(92)</span></div>
+                <a href="product-detail.html#n=Azucar+Domino+10lb&p=7.99&po=9.99&img=food-9.jpg&b=Domino&m=Granulated+10lb&d=Azucar+granulada+premium&r=4.7&rv=92&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;23%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-10.jpg" alt="Harina de Trigo Gold Medal 5lb" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">Harina de Trigo Gold Medal 5lb</p>
+                <p class="mt-1 font-medium text-neutral-900">$4.99 <span class="text-sm text-neutral-500 line-through">$6.49</span></p>
+                <div class="mt-1 flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(134)</span></div>
+                <a href="product-detail.html#n=Harina+de+Trigo+Gold+Medal+5lb&p=4.99&po=6.49&img=food-10.jpg&b=Gold+Medal&m=All+Purpose+5lb&d=Harina+multiuso+para+cocinar+y+hornear&r=4.6&rv=134&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100"><span data-i18n="View Details">View Details</span></a>
+              </div>
+            </div>
+            <!-- PRODUCTOS:END -->
+          </section>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
+        <div class="ml-5">
+          <p class="mt-10 mb-5 text-xl font-bold text-neutral-900">Alopez <span class="text-cyan-600">Multiservices LLC</span></p>
+          <p class="pl-0">Quality home appliances <br /> at the best prices.</p>
+          <div class="mt-10 flex gap-3">
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/github.svg" alt="github icon" /></a>
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/telegram.svg" alt="telegram icon" /></a>
+            <a href="#"><img class="h-5 w-5 cursor-pointer" src="./assets/images/linkedin.svg" alt="linkedin icon" /></a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-neutral-500" data-i18n="CATEGORIES">CATEGORIES</p>
+            <ul class="text-sm leading-8">
+              <li><a href="category-washing-machines.html">Washing Machines</a></li>
+              <li><a href="category-refrigerators.html">Refrigerators</a></li>
+              <li><a href="category-air-conditioners.html">Air Conditioners</a></li>
+              <li><a href="category-televisions.html">Televisions</a></li>
+              <li><a href="category-auto-parts.html">Auto Parts</a></li>
+              <li><a href="category-food-groceries.html">Food &amp; Groceries</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-neutral-500">SUPPORT</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Warranty</a></li>
+              <li><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-neutral-500">COMPANY</p>
+            <ul class="text-sm leading-8">
+              <li><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">License</a></li>
+            </ul>
+          </div>
+          <div class="mx-5 mt-10">
+            <p class="font-medium text-neutral-500">DELIVERY</p>
+            <ul class="text-sm leading-8">
+              <li><a href="#">Countries</a></li>
+              <li><a href="#">Restrictions</a></li>
+              <li><a href="#">Payment</a></li>
+              <li><a href="#">Tracking</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+      <section class="h-11 bg-cyan-500">
+        <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
+          <p>&copy; Alopez Multiservices LLC, 2024</p>
+          <div class="flex items-center space-x-3">
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" alt="Visa" />
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="AE" />
+            <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" alt="Apple Pay" />
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/lang.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+  </body>
+</html>

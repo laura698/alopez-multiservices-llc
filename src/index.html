@@ -42,21 +42,16 @@
           <a class="text-sm font-medium whitespace-nowrap text-white/90 duration-100 hover:text-white" href="contact-us.html" data-i18n="Contact Us">Contact Us</a>
         </div>
 
-        <form class="hidden h-10 w-48 items-center rounded-full bg-white pr-1 pl-4 lg:flex xl:w-64">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-neutral-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-          <input class="w-full bg-transparent px-2 text-sm text-neutral-900 outline-none" type="search" placeholder="Search" data-i18n-placeholder="Search" />
-          <button class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-white hover:bg-cyan-500">
-            <span data-i18n="Search" class="sr-only">Search</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-          </button>
-        </form>
 
         <!-- Language Selector + CTA + Mobile Hamburger -->
         <div class="flex items-center gap-2">
+          <a href="cart.html" class="relative flex items-center justify-center h-10 w-10 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Cart">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572l-.003.017h-.003A3 3 0 007.5 14.25zm0 0H18M18 14.25a3 3 0 105.98.572M18 14.25H7.5m0 0l-1.394-5.228m0 0h13.588a.75.75 0 01.727.943l-1.527 5.735a.75.75 0 01-.727.557H7.5" />
+            </svg>
+            <span class="cart-badge absolute -top-1.5 -right-1.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-cyan-400 text-[10px] font-bold text-neutral-900" style="display:none">0</span>
+          </a>
+
           <div class="relative flex-shrink-0" id="lang-dropdown-container">
             <button id="lang-toggle" class="flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-sm text-white font-medium hover:bg-white/10 transition-colors">
               <span id="lang-flag"></span>
@@ -94,34 +89,6 @@
       style="display: none"
     >
       <div class="mx-auto">
-                <form class="my-4 mx-5 flex h-9 items-center border">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="mx-3 h-4 w-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
-          </svg>
-
-          <input
-            class="hidden w-11/12 outline-none md:block"
-            type="search"
-            placeholder="Search"
-            data-i18n-placeholder="Search"
-          />
-
-          <button
-            type="submit"
-            class="ml-auto h-full bg-cyan-500 px-4 hover:bg-cyan-400"
-          ><span data-i18n="Search">Search</span></button>
-        </form>
         <ul class="text-center font-medium">
           <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
           <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
@@ -305,6 +272,66 @@
                 alt="Food icon"
               />
               <span data-i18n="Small Appliances">Small Appliances</span>
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              @mouseenter="activeCategory = 'auto-parts'"
+              :class="activeCategory === 'auto-parts' ? 'bg-cyan-500' : 'hover:bg-neutral-100'"
+              class="flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-cyan-500"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="./assets/images/car.svg"
+                alt="Auto Parts icon"
+              />
+              <span data-i18n="Auto Parts">Auto Parts</span>
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              @mouseenter="activeCategory = 'food-groceries'"
+              :class="activeCategory === 'food-groceries' ? 'bg-cyan-500' : 'hover:bg-neutral-100'"
+              class="flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-cyan-500"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="./assets/images/grocery-bag.svg"
+                alt="Groceries icon"
+              />
+              <span data-i18n="Food & Groceries">Food &amp; Groceries</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -549,6 +576,80 @@
             </a>
           </div>
 
+          <!-- Auto Parts panel -->
+          <div x-show="activeCategory === 'auto-parts'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-neutral-500 uppercase" data-i18n="Auto Parts">AUTO PARTS</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Bateria DieHard Gold</span><span class="text-neutral-400">$159.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Filtro de Aceite Mobil 1</span><span class="text-neutral-400">$12.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Pastillas de Freno Bosch</span><span class="text-neutral-400">$42.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Aceite Motor Mobil 1 5W-30</span><span class="text-neutral-400">$29.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Bujias NGK Iridium 4-pack</span><span class="text-neutral-400">$24.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Amortiguadores Monroe</span><span class="text-neutral-400">$89.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Correa de Distribucion Gates</span><span class="text-neutral-400">$149.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Filtro de Aire K&amp;N</span><span class="text-neutral-400">$54.99</span>
+              </a>
+              <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Faro Delantero LED Sylvania</span><span class="text-neutral-400">$44.99</span>
+              </a>
+            </div>
+            <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="mt-5 inline-block self-start bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:bg-cyan-400">
+              <span data-i18n="See full catalog">See full catalog</span> →
+            </a>
+          </div>
+
+          <!-- Food & Groceries panel -->
+          <div x-show="activeCategory === 'food-groceries'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-neutral-500 uppercase" data-i18n="Food & Groceries">FOOD &amp; GROCERIES</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Arroz Jasmine 5lb</span><span class="text-neutral-400">$8.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Aceite de Oliva Extra Virgen</span><span class="text-neutral-400">$12.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Frijoles Negros Goya</span><span class="text-neutral-400">$7.49</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Cafe Bustelo Espresso</span><span class="text-neutral-400">$11.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Leche Evaporada Carnation</span><span class="text-neutral-400">$18.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Salsa de Tomate Hunt's</span><span class="text-neutral-400">$6.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Pasta Barilla Spaghetti</span><span class="text-neutral-400">$8.49</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Atun StarKist Chunk Light</span><span class="text-neutral-400">$14.99</span>
+              </a>
+              <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="flex justify-between gap-4 hover:text-cyan-700">
+                <span>Azucar Domino 10lb</span><span class="text-neutral-400">$7.99</span>
+              </a>
+            </div>
+            <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="mt-5 inline-block self-start bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:bg-cyan-400">
+              <span data-i18n="See full catalog">See full catalog</span> →
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -761,6 +862,32 @@
         </div>
       </a>
 
+      <a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="h-32 overflow-hidden lg:h-48">
+          <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/cat-auto-parts.jpg" alt="Auto Parts" />
+        </div>
+        <div class="flex items-center justify-between p-4">
+          <span class="text-sm font-semibold text-neutral-900 lg:text-base" data-i18n="Auto Parts">Auto Parts</span>
+          <span class="flex shrink-0 items-center gap-1 text-xs font-medium text-cyan-600 lg:text-sm">
+            <span class="hidden sm:inline" data-i18n="Shop now">Shop now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="h-32 overflow-hidden lg:h-48">
+          <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/cat-food-groceries.jpg" alt="Food & Groceries" />
+        </div>
+        <div class="flex items-center justify-between p-4">
+          <span class="text-sm font-semibold text-neutral-900 lg:text-base" data-i18n="Food & Groceries">Food &amp; Groceries</span>
+          <span class="flex shrink-0 items-center gap-1 text-xs font-medium text-cyan-600 lg:text-sm">
+            <span class="hidden sm:inline" data-i18n="Shop now">Shop now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+          </span>
+        </div>
+      </a>
+
     </section>
     <!-- /Cathegories  -->
 
@@ -911,6 +1038,52 @@
                   <span class="ml-1 text-xs text-neutral-500">(38)</span>
                 </div>
                 <a href="product-overview.html" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- 7 -->
+          <li class="splide__slide h-full">
+            <div class="group h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;16%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/auto-1.jpg" alt="Bateria DieHard Gold" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">BATERIA DIEHARD GOLD</p>
+                <p class="mt-1 font-medium text-neutral-900">$159.99 <span class="text-sm text-neutral-500 line-through">$189.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <span class="ml-1 text-xs text-neutral-500">(312)</span>
+                </div>
+                <a href="product-detail.html#n=Bateria+DieHard+Gold&p=159.99&po=189.99&img=auto-1.jpg&b=DieHard&m=Gold+51R&d=Bateria+automotriz+12V%2C+500+CCA%2C+60+meses+garantia&r=4.7&rv=312&cat=auto-parts" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- 8 -->
+          <li class="splide__slide h-full">
+            <div class="group h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+              <div class="relative aspect-square bg-neutral-50 p-6">
+                <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;25%</span>
+                <img class="h-full w-full object-contain transition duration-300 group-hover:scale-105" src="./assets/images/food-1.jpg" alt="Arroz Jasmine 5lb" />
+              </div>
+              <div class="p-4">
+                <p class="text-sm font-semibold text-neutral-900">ARROZ JASMINE 5LB</p>
+                <p class="mt-1 font-medium text-neutral-900">$8.99 <span class="text-sm text-neutral-500 line-through">$11.99</span></p>
+                <div class="mt-1 flex items-center gap-0.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-neutral-200"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg>
+                  <span class="ml-1 text-xs text-neutral-500">(89)</span>
+                </div>
+                <a href="product-detail.html#n=Arroz+Jasmine+5lb&p=8.99&po=11.99&img=food-1.jpg&b=Royal&m=Jasmine+5lb&d=Arroz+jasmine+premium%2C+grano+largo&r=4.6&rv=89&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
               </div>
             </div>
           </li>
@@ -1182,8 +1355,173 @@
           <a href="product-detail.html#n=LG%20Dual%20Inverter%2018000%20BTU&p=749&po=899&img=ac-2.jpg&b=LG&m=S18EQ&d=Aire%20Dual%20Cool%20Inverter%2018000%20BTU&r=4.6&rv=203&cat=air-conditioners" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
         </div>
       </div>
+
+      <!-- Bosch Serie 8 Lavavajillas -->
+      <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="relative">
+          <img class="w-full object-cover aspect-square bg-neutral-50" src="./assets/images/kitchen-1.jpg" alt="Bosch Serie 8 Lavavajillas" />
+          <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 duration-150 group-hover:opacity-100">
+            <a href="product-detail.html#n=Bosch%20Serie%208%20Lavavajillas&p=1199&po=1399&img=kitchen-1.jpg&b=Bosch&m=SMV8YCX03E&d=Lavavajillas%2060cm%2C%2013%20cubiertos%2C%20WiFi&r=4.8&rv=234&cat=kitchen-appliances">
+              <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </span>
+            </a>
+            <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+            </span>
+          </div>
+          <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;14%</span>
+        </div>
+        <div class="p-4">
+          <p class="text-sm font-semibold text-neutral-900">BOSCH SERIE 8 LAVAVAJILLAS</p>
+          <p class="mt-1 font-medium text-neutral-900">$1,199 <span class="text-sm text-neutral-500 line-through">$1,399</span></p>
+          <div class="flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(234)</span></div>
+          <a href="product-detail.html#n=Bosch%20Serie%208%20Lavavajillas&p=1199&po=1399&img=kitchen-1.jpg&b=Bosch&m=SMV8YCX03E&d=Lavavajillas%2060cm%2C%2013%20cubiertos%2C%20WiFi&r=4.8&rv=234&cat=kitchen-appliances" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+        </div>
+      </div>
+
+      <!-- Dyson Airwrap -->
+      <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="relative">
+          <img class="w-full object-cover aspect-square bg-neutral-50" src="./assets/images/small-2.jpg" alt="Dyson Airwrap" />
+          <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 duration-150 group-hover:opacity-100">
+            <a href="product-detail.html#n=Dyson%20Airwrap&p=599&po=699&img=small-2.jpg&b=Dyson&m=HS05&d=Multiestilarizador%20cabello%2C%208%20accesorios&r=4.7&rv=341&cat=small-appliances">
+              <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </span>
+            </a>
+            <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+            </span>
+          </div>
+          <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;14%</span>
+        </div>
+        <div class="p-4">
+          <p class="text-sm font-semibold text-neutral-900">DYSON AIRWRAP</p>
+          <p class="mt-1 font-medium text-neutral-900">$599 <span class="text-sm text-neutral-500 line-through">$699</span></p>
+          <div class="flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(341)</span></div>
+          <a href="product-detail.html#n=Dyson%20Airwrap&p=599&po=699&img=small-2.jpg&b=Dyson&m=HS05&d=Multiestilarizador%20cabello%2C%208%20accesorios&r=4.7&rv=341&cat=small-appliances" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+        </div>
+      </div>
+
+      <!-- Bateria DieHard Gold -->
+      <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="relative">
+          <img class="w-full object-cover aspect-square bg-neutral-50" src="./assets/images/auto-1.jpg" alt="Bateria DieHard Gold" />
+          <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 duration-150 group-hover:opacity-100">
+            <a href="product-detail.html#n=Bateria%20DieHard%20Gold&p=159.99&po=189.99&img=auto-1.jpg&b=DieHard&m=Gold%2051R&d=Bateria%20automotriz%2012V%2C%20500%20CCA%2C%2060%20meses%20garantia&r=4.7&rv=312&cat=auto-parts">
+              <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </span>
+            </a>
+            <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+            </span>
+          </div>
+          <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;16%</span>
+        </div>
+        <div class="p-4">
+          <p class="text-sm font-semibold text-neutral-900">BATERIA DIEHARD GOLD</p>
+          <p class="mt-1 font-medium text-neutral-900">$159.99 <span class="text-sm text-neutral-500 line-through">$189.99</span></p>
+          <div class="flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(312)</span></div>
+          <a href="product-detail.html#n=Bateria%20DieHard%20Gold&p=159.99&po=189.99&img=auto-1.jpg&b=DieHard&m=Gold%2051R&d=Bateria%20automotriz%2012V%2C%20500%20CCA%2C%2060%20meses%20garantia&r=4.7&rv=312&cat=auto-parts" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+        </div>
+      </div>
+
+      <!-- Arroz Jasmine 5lb -->
+      <div class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+        <div class="relative">
+          <img class="w-full object-cover aspect-square bg-neutral-50" src="./assets/images/food-1.jpg" alt="Arroz Jasmine 5lb" />
+          <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 duration-150 group-hover:opacity-100">
+            <a href="product-detail.html#n=Arroz%20Jasmine%205lb&p=8.99&po=11.99&img=food-1.jpg&b=Royal&m=Jasmine%205lb&d=Arroz%20jasmine%20premium%2C%20grano%20largo&r=4.6&rv=89&cat=food-groceries">
+              <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </span>
+            </a>
+            <span class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-cyan-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+            </span>
+          </div>
+          <span class="absolute top-3 left-3 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white">&minus;25%</span>
+        </div>
+        <div class="p-4">
+          <p class="text-sm font-semibold text-neutral-900">ARROZ JASMINE 5LB</p>
+          <p class="mt-1 font-medium text-neutral-900">$8.99 <span class="text-sm text-neutral-500 line-through">$11.99</span></p>
+          <div class="flex items-center gap-0.5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-yellow-400"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd"/></svg><span class="ml-1 text-xs text-neutral-500">(89)</span></div>
+          <a href="product-detail.html#n=Arroz%20Jasmine%205lb&p=8.99&po=11.99&img=food-1.jpg&b=Royal&m=Jasmine%205lb&d=Arroz%20jasmine%20premium%2C%20grano%20largo&r=4.6&rv=89&cat=food-groceries" class="mt-3 flex h-10 w-full items-center justify-center rounded-full bg-neutral-900 text-white text-sm hover:bg-neutral-800 duration-100" data-i18n="View Details">View Details</a>
+        </div>
+      </div>
     </section>
     <!-- /Recommendations -->
+
+    <!-- Shop by specialty -->
+    <section class="mx-auto max-w-[1200px] px-5 py-14">
+      <div class="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-cyan-600" data-i18n="Auto Parts">Auto Parts</p>
+          <h2 class="mt-1 text-2xl font-bold text-neutral-900 sm:text-3xl" data-i18n="Find the Exact Part for Your Vehicle">Find the Exact Part for Your Vehicle</h2>
+        </div>
+        <a href="category-auto-parts.html" class="hidden shrink-0 items-center gap-1 text-sm font-semibold text-cyan-600 hover:text-cyan-700 sm:flex">
+          <span data-i18n="See full catalog">See full catalog</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <a href="category-auto-parts.html" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+          <div class="relative h-36 overflow-hidden bg-neutral-50 lg:h-44">
+            <span class="absolute top-3 left-3 z-10 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white" data-i18n="Popular">Popular</span>
+            <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/auto-3.jpg" alt="Brakes and Suspension" />
+          </div>
+          <div class="p-4">
+            <p class="text-sm font-semibold text-neutral-900" data-i18n="Brakes & Suspension">Brakes &amp; Suspension</p>
+            <p class="mt-1 text-xs text-neutral-500" data-i18n="Pads, rotors and shocks">Pads, rotors and shocks</p>
+          </div>
+        </a>
+
+        <a href="category-auto-parts.html" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+          <div class="relative h-36 overflow-hidden bg-neutral-50 lg:h-44">
+            <span class="absolute top-3 left-3 z-10 rounded-full bg-neutral-900 px-2.5 py-1 text-xs font-semibold text-white" data-i18n="Essentials">Essentials</span>
+            <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/auto-9.jpg" alt="Filters and Fluids" />
+          </div>
+          <div class="p-4">
+            <p class="text-sm font-semibold text-neutral-900" data-i18n="Filters & Fluids">Filters &amp; Fluids</p>
+            <p class="mt-1 text-xs text-neutral-500" data-i18n="Engine oil, air and oil filters">Engine oil, air and oil filters</p>
+          </div>
+        </a>
+
+        <a href="category-auto-parts.html" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+          <div class="relative h-36 overflow-hidden bg-neutral-50 lg:h-44">
+            <span class="absolute top-3 left-3 z-10 rounded-full bg-cyan-500 px-2.5 py-1 text-xs font-semibold text-white" data-i18n="New">New</span>
+            <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/auto-19.jpg" alt="Lighting" />
+          </div>
+          <div class="p-4">
+            <p class="text-sm font-semibold text-neutral-900" data-i18n="Lighting">Lighting</p>
+            <p class="mt-1 text-xs text-neutral-500" data-i18n="LED headlights, halogen and accessories">LED headlights, halogen and accessories</p>
+          </div>
+        </a>
+
+        <a href="category-auto-parts.html" class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition duration-200 hover:-translate-y-1 hover:shadow-md">
+          <div class="relative h-36 overflow-hidden bg-neutral-50 lg:h-44">
+            <span class="absolute top-3 left-3 z-10 rounded-full bg-neutral-900 px-2.5 py-1 text-xs font-semibold text-white" data-i18n="Guaranteed">Guaranteed</span>
+            <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105" src="./assets/images/auto-1.jpg" alt="Batteries and Electrical" />
+          </div>
+          <div class="p-4">
+            <p class="text-sm font-semibold text-neutral-900" data-i18n="Batteries & Electrical">Batteries &amp; Electrical</p>
+            <p class="mt-1 text-xs text-neutral-500" data-i18n="Batteries, alternators and sensors">Batteries, alternators and sensors</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-6 flex flex-col items-center justify-between gap-6 rounded-2xl bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-700 px-8 py-8 sm:flex-row">
+        <div class="text-center sm:text-left">
+          <p class="text-xs font-semibold uppercase tracking-wider text-cyan-200" data-i18n="Shipping across Miami-Dade">Shipping across Miami-Dade</p>
+          <h3 class="mt-1 text-xl font-bold text-white sm:text-2xl" data-i18n="Original and generic parts, ready to install">Original and generic parts, ready to install</h3>
+        </div>
+        <a href="category-auto-parts.html" class="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-white px-8 font-semibold text-cyan-900 duration-100 hover:bg-cyan-50"><span data-i18n="View All Parts">View All Parts</span></a>
+      </div>
+    </section>
+    <!-- /Shop by specialty -->
 
     <!-- Testimonials -->
 
@@ -1305,6 +1643,8 @@
             <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Televisions">Televisions</a></li>
             <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Kitchen Appliances">Kitchen Appliances</a></li>
             <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Small Appliances">Small Appliances</a></li>
+            <li><a href="catalog.html" data-category="auto-parts" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Auto Parts">Auto Parts</a></li>
+            <li><a href="catalog.html" data-category="food-groceries" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Food & Groceries">Food &amp; Groceries</a></li>
           </ul>
         </div>
 
@@ -1334,6 +1674,7 @@
     <!-- /Desktop Footer  -->
 
 
+    <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>
